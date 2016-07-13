@@ -70,6 +70,7 @@
     <Compile Include="IOutput.cs" />
     <Compile Include="IOutputDescriptor.cs" />
     <Compile Include="MetricsTransformer.cs" />
+    <Compile Include="MetricsUnrollingTransformer.cs" />
     <Compile Include="OutputToConsole.cs" />
     <Compile Include="OutputToDirectoryHierarchy.cs" />
     <Compile Include="Program.cs" />

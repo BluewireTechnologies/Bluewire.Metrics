@@ -61,7 +61,7 @@ be ignored. Warnings will be written to STDERR.
             if (!arguments.ArgumentList.Any()) return 1; // Nothing to do?
 
             var outputDescriptor = GetOutput(arguments.OutputDirectory);
-            var transformer = new MetricsTransformer { PrettyPrint = arguments.PrettyPrint };
+            var transformer = new MetricsUnrollingTransformer { PrettyPrint = arguments.PrettyPrint };
             var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives });
 
 
