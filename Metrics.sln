@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluewire.Metrics.Json", "Bluewire.Metrics.Json\Bluewire.Metrics.Json.csproj", "{F4F73C66-3001-47EC-B821-4F95C3ACFB00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReshapeMetrics", "ReshapeMetrics\ReshapeMetrics.csproj", "{AD674D3F-8A78-4CD6-AB3C-3E03A08671BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4F73C66-3001-47EC-B821-4F95C3ACFB00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4F73C66-3001-47EC-B821-4F95C3ACFB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4F73C66-3001-47EC-B821-4F95C3ACFB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4F73C66-3001-47EC-B821-4F95C3ACFB00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD674D3F-8A78-4CD6-AB3C-3E03A08671BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD674D3F-8A78-4CD6-AB3C-3E03A08671BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD674D3F-8A78-4CD6-AB3C-3E03A08671BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD674D3F-8A78-4CD6-AB3C-3E03A08671BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
