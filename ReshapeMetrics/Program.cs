@@ -21,7 +21,8 @@ namespace ReshapeMetrics
             {
                 { "o|output=", "Output directory", o => arguments.OutputDirectory = o },
                 { "p|pretty|pretty-print|indent", "Generate readable, indented JSON instead of compacting it.", o => arguments.PrettyPrint = true },
-                { "a|archives|unwrap-archives", "Don't generate subdirectories for ZIP files in the output folder. Output all files directly.", o => arguments.UnwrapArchives = true }
+                { "a|archives|unwrap-archives", "Don't generate subdirectories for ZIP files in the output folder. Output all files directly.", o => arguments.UnwrapArchives = true },
+                { "s|sanitise", "When unrolling arrays into dictionaries, squash questionable characters to underscores.", o => arguments.SanitiseKeys = true },
             };
             var session = new ConsoleSession<Arguments>(arguments, options);
             session.ExtendedUsageDetails = @"
@@ -61,7 +62,7 @@ be ignored. Warnings will be written to STDERR.
             if (!arguments.ArgumentList.Any()) return 1; // Nothing to do?
 
             var outputDescriptor = GetOutput(arguments.OutputDirectory);
-            var transformer = new MetricsUnrollingTransformer { PrettyPrint = arguments.PrettyPrint };
+            var transformer = new MetricsUnrollingTransformer { PrettyPrint = arguments.PrettyPrint, SanitiseKeys = arguments.SanitiseKeys };
             var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives });
 
 
@@ -114,6 +115,7 @@ be ignored. Warnings will be written to STDERR.
             public IList<string> ArgumentList { get; } = new List<string>();
             public bool PrettyPrint { get; set; }
             public bool UnwrapArchives { get; set; }
+            public bool SanitiseKeys { get; set; }
         }
     }
 }
