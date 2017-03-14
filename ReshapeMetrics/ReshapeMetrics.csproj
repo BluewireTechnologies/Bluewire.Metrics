@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoubleNaNJsonConverter.cs" />
     <Compile Include="FileSystemVisitor.cs" />
     <Compile Include="ITransformer.cs" />
     <Compile Include="IOutput.cs" />
