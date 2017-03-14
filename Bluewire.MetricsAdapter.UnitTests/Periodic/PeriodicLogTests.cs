@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Bluewire.MetricsAdapter.Periodic;
 using Moq;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ namespace Bluewire.MetricsAdapter.UnitTests.Periodic
     public class PeriodicLogTests
     {
         [Test]
-        public void AttemptsCleanUpOnFirstUse()
+        public async Task AttemptsCleanUpOnFirstUse()
         {
             var now = DateTimeOffset.UtcNow;
 
@@ -20,7 +21,7 @@ namespace Bluewire.MetricsAdapter.UnitTests.Periodic
 
             var logger = new PeriodicLog(policy.Object, jail.Object);
 
-            logger.MaybeCleanUp(now).Wait();
+            await logger.MaybeCleanUp(now);
 
             jail.Verify(j => j.GetSubdirectories());
             policy.Verify(j => j.GetExpiredSubdirectories(It.IsAny<IEnumerable<string>>(), now));
