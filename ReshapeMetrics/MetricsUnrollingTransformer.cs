@@ -46,7 +46,7 @@ namespace ReshapeMetrics
                     counter.Unit,
                     counter.Tags
                 },
-                Named = counter.Items?.ToDictionary(i => i.Item, i => new {
+                Named = counter.Items?.ToDictionary(i => GetKeyString(i.Item), i => new {
                     i.Count,
                     counter.Unit,
                     i.Percent
@@ -68,7 +68,7 @@ namespace ReshapeMetrics
                     meter.RateUnit,
                     meter.Tags
                 },
-                Named = meter.Items?.ToDictionary(i => i.Item, i => new {
+                Named = meter.Items?.ToDictionary(i => GetKeyString(i.Item), i => new {
                     i.Count,
                     i.MeanRate,
                     i.OneMinuteRate,
