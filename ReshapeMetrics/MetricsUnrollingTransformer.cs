@@ -33,8 +33,8 @@ namespace ReshapeMetrics
         private readonly Regex rxQuestionableCharacters = new Regex(@"\W+");
         private string GetKeyString(string name)
         {
-            if (!SanitiseKeys) return name;
-            return rxQuestionableCharacters.Replace(name, "_");
+            if (SanitiseKeysCharacter == null) return name;
+            return rxQuestionableCharacters.Replace(name, new string(SanitiseKeysCharacter.Value, 1));
         }
 
         private object TransformCounter(JsonCounter counter)
@@ -81,6 +81,6 @@ namespace ReshapeMetrics
             };
         }
 
-        public bool SanitiseKeys { get; set; }
+        public char? SanitiseKeysCharacter { get; set; }
     }
 }
