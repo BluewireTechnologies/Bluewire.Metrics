@@ -13,7 +13,11 @@ namespace ReshapeMetrics
             return new JsonSerializerSettings() {
                 NullValueHandling = NullValueHandling.Ignore,
                 DateFormatHandling = DateFormatHandling.IsoDateFormat,
-                Formatting = PrettyPrint ? Formatting.Indented : Formatting.None
+                Formatting = PrettyPrint ? Formatting.Indented : Formatting.None,
+                Converters =
+                {
+                    new DoubleNaNAsNullJsonConverter()
+                }
             };
         }
 
@@ -24,7 +28,7 @@ namespace ReshapeMetrics
 
         public void Transform(string content, IOutput output)
         {
-            var metrics = JsonConvert.DeserializeObject<JsonMetrics>(content);
+            var metrics = JsonConvert.DeserializeObject<JsonMetrics>(content, new DoubleNaNAsNullJsonConverter());
             var transformed = Transform(metrics);
             output.GetWriter().WriteLine(JsonConvert.SerializeObject(transformed, GetSerialiserSettings()));
         }
