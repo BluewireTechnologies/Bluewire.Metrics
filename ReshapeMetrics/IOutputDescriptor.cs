@@ -4,6 +4,6 @@ namespace ReshapeMetrics
 {
     public interface IOutputDescriptor : IDisposable
     {
-        IOutput GetOutputFor(string relativePath);
+        IOutput GetOutputFor(string relativePath, EnvironmentLookup environment);
     }
 }

@@ -58,18 +58,21 @@ be ignored. Warnings will be written to STDERR.
         public int Run(Arguments arguments)
         {
             Log.Configure();
+            cancelMonitor = new CancelMonitor();
+            cancelMonitor.LogRequestsToConsole();
+
             MaybeReadInputsFromSTDIN(arguments);
             if (!arguments.ArgumentList.Any()) return 1; // Nothing to do?
 
             var transformer = new MetricsUnrollingMetricsTransformer { SanitiseKeysCharacter = arguments.SanitiseKeysCharacter };
             var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives });
 
-
             using (var outputDescriptor = GetOutput(arguments.OutputDirectory))
             using (var visiting = fileSystemVisitor.Enumerate(arguments.ArgumentList.ToArray()))
             {
                 while (visiting.MoveNext())
                 {
+                    cancelMonitor.CheckForCancel();
                     try
                     {
                         var content = visiting.Current.GetReader().ReadToEnd();
@@ -77,17 +80,19 @@ be ignored. Warnings will be written to STDERR.
 
                         var transformed = transformer.Transform(metrics);
 
-                        using (var output = outputDescriptor.GetOutputFor(visiting.Current.RelativePath))
+                        using (var output = outputDescriptor.GetOutputFor(visiting.Current.RelativePath, new EnvironmentLookup(metrics)))
                         {
                             output.GetWriter().WriteLine(JsonConvert.SerializeObject(transformed, GetSerialiserSettings(arguments.PrettyPrint)));
                         }
                     }
                     catch (Exception ex)
                     {
+                        cancelMonitor.CheckForCancel();
                         Log.Console.Warn($"Could not process file {visiting.Current.RelativePath}: {ex.Message}");
                     }
                 }
             }
+            cancelMonitor.CheckForCancel();
 
             return 0;
         }
@@ -114,6 +119,8 @@ be ignored. Warnings will be written to STDERR.
             if (String.IsNullOrWhiteSpace(outputDirectory)) return new OutputToConsole();
             return new OutputToDirectoryHierarchy(Path.GetFullPath(outputDirectory));
         }
+
+        private CancelMonitor cancelMonitor;
 
         private static bool MaybeReadInputsFromSTDIN(Arguments arguments)
         {

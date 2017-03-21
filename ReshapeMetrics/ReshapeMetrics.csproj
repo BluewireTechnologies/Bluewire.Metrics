@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoubleNaNAsNullJsonConverter.cs" />
+    <Compile Include="EnvironmentLookup.cs" />
     <Compile Include="FileSystemVisitor.cs" />
     <Compile Include="IMetricsTransformer.cs" />
     <Compile Include="IOutput.cs" />

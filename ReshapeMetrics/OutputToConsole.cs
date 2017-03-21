@@ -5,7 +5,7 @@ namespace ReshapeMetrics
 {
     public class OutputToConsole : IOutputDescriptor
     {
-        public IOutput GetOutputFor(string relativePath)
+        public IOutput GetOutputFor(string relativePath, EnvironmentLookup environment)
         {
             return new Impl();
         }
