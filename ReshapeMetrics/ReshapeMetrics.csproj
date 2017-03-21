@@ -65,13 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoubleNaNJsonConverter.cs" />
+    <Compile Include="DoubleNaNAsNullJsonConverter.cs" />
     <Compile Include="FileSystemVisitor.cs" />
-    <Compile Include="ITransformer.cs" />
+    <Compile Include="IMetricsTransformer.cs" />
     <Compile Include="IOutput.cs" />
     <Compile Include="IOutputDescriptor.cs" />
-    <Compile Include="MetricsTransformer.cs" />
-    <Compile Include="MetricsUnrollingTransformer.cs" />
+    <Compile Include="MetricsUnrollingMetricsTransformer.cs" />
     <Compile Include="OutputToConsole.cs" />
     <Compile Include="OutputToDirectoryHierarchy.cs" />
     <Compile Include="Program.cs" />

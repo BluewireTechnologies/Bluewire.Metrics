@@ -4,9 +4,9 @@ using Bluewire.Metrics.Json.Model;
 
 namespace ReshapeMetrics
 {
-    public class MetricsUnrollingTransformer : MetricsTransformer
+    public class MetricsUnrollingMetricsTransformer : IMetricsTransformer
     {
-        public override object Transform(JsonMetrics metrics)
+        public object Transform(JsonMetrics metrics)
         {
             return new {
                 metrics.Version,

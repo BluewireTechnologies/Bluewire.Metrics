@@ -61,7 +61,7 @@ be ignored. Warnings will be written to STDERR.
             MaybeReadInputsFromSTDIN(arguments);
             if (!arguments.ArgumentList.Any()) return 1; // Nothing to do?
 
-            var transformer = new MetricsUnrollingTransformer { PrettyPrint = arguments.PrettyPrint, SanitiseKeysCharacter = arguments.SanitiseKeysCharacter };
+            var transformer = new MetricsUnrollingMetricsTransformer { SanitiseKeysCharacter = arguments.SanitiseKeysCharacter };
             var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives });
 
 
@@ -72,10 +72,14 @@ be ignored. Warnings will be written to STDERR.
                 {
                     try
                     {
+                        var content = visiting.Current.GetReader().ReadToEnd();
+                        var metrics = JsonConvert.DeserializeObject<JsonMetrics>(content, GetDeserialiserSettings());
+
+                        var transformed = transformer.Transform(metrics);
+
                         using (var output = outputDescriptor.GetOutputFor(visiting.Current.RelativePath))
                         {
-                            var content = visiting.Current.GetReader().ReadToEnd();
-                            transformer.Transform(content, output);
+                            output.GetWriter().WriteLine(JsonConvert.SerializeObject(transformed, GetSerialiserSettings(arguments.PrettyPrint)));
                         }
                     }
                     catch (Exception ex)
@@ -86,6 +90,23 @@ be ignored. Warnings will be written to STDERR.
             }
 
             return 0;
+        }
+
+        private static JsonSerializerSettings GetDeserialiserSettings()
+        {
+            return new JsonSerializerSettings() {
+                Converters = { new DoubleNaNAsNullJsonConverter() }
+            };
+        }
+
+        private static JsonSerializerSettings GetSerialiserSettings(bool prettyPrint)
+        {
+            return new JsonSerializerSettings() {
+                NullValueHandling = NullValueHandling.Ignore,
+                DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                Formatting = prettyPrint ? Formatting.Indented : Formatting.None,
+                Converters = { new DoubleNaNAsNullJsonConverter() }
+            };
         }
 
         private static IOutputDescriptor GetOutput(string outputDirectory)
