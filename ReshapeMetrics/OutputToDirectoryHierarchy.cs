@@ -53,5 +53,9 @@ namespace ReshapeMetrics
                 stream = null;
             }
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

@@ -61,11 +61,11 @@ be ignored. Warnings will be written to STDERR.
             MaybeReadInputsFromSTDIN(arguments);
             if (!arguments.ArgumentList.Any()) return 1; // Nothing to do?
 
-            var outputDescriptor = GetOutput(arguments.OutputDirectory);
             var transformer = new MetricsUnrollingTransformer { PrettyPrint = arguments.PrettyPrint, SanitiseKeysCharacter = arguments.SanitiseKeysCharacter };
             var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives });
 
 
+            using (var outputDescriptor = GetOutput(arguments.OutputDirectory))
             using (var visiting = fileSystemVisitor.Enumerate(arguments.ArgumentList.ToArray()))
             {
                 while (visiting.MoveNext())

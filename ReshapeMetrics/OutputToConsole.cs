@@ -18,5 +18,9 @@ namespace ReshapeMetrics
             {
             }
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

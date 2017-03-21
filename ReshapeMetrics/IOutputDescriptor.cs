@@ -1,6 +1,8 @@
-﻿namespace ReshapeMetrics
+﻿using System;
+
+namespace ReshapeMetrics
 {
-    public interface IOutputDescriptor
+    public interface IOutputDescriptor : IDisposable
     {
         IOutput GetOutputFor(string relativePath);
     }
