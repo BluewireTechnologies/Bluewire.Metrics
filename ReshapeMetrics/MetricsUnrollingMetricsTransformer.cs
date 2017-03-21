@@ -13,7 +13,7 @@ namespace ReshapeMetrics
                 metrics.Timestamp,
                 metrics.Context,
                 metrics.Environment,
-                ChildContexts = metrics.ChildContexts.ToDictionary(c => GetKeyString(c.Context), TransformContext)
+                ChildContexts = metrics.ChildContexts?.ToDictionary(c => GetKeyString(c.Context), TransformContext)
             };
         }
 
