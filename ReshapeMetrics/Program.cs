@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,10 +18,10 @@ namespace ReshapeMetrics
             var arguments = new Arguments();
             var options = new OptionSet
             {
-                { "o|output=", "Output directory", o => arguments.OutputDirectory = o },
+                { "o|output=", "Output directory", o => arguments.UseFileSystem(o) },
                 { "p|pretty|pretty-print|indent", "Generate readable, indented JSON instead of compacting it.", o => arguments.PrettyPrint = true },
                 { "a|archives|unwrap-archives", "Don't generate subdirectories for ZIP files in the output folder. Output all files directly.", o => arguments.UnwrapArchives = true },
-                { "s|sanitise:", "When unrolling arrays into dictionaries, squash questionable characters to the specified character. Default: _", (char? o) => arguments.SanitiseKeysCharacter = o ?? '_' },
+                { "s|sanitise:", "When unrolling arrays into dictionaries, squash questionable characters to the specified character. Default: _", (char? o) => arguments.SanitiseKeys(o) },
             };
             var session = new ConsoleSession<Arguments>(arguments, options);
             session.ExtendedUsageDetails = @"
@@ -58,6 +57,7 @@ be ignored. Warnings will be written to STDERR.
         public int Run(Arguments arguments)
         {
             Log.Configure();
+            Log.SetConsoleVerbosity(arguments.Verbosity);
             cancelMonitor = new CancelMonitor();
             cancelMonitor.LogRequestsToConsole();
 
@@ -67,7 +67,7 @@ be ignored. Warnings will be written to STDERR.
             var transformer = new MetricsUnrollingMetricsTransformer { SanitiseKeysCharacter = arguments.SanitiseKeysCharacter };
             var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives });
 
-            using (var outputDescriptor = GetOutput(arguments.OutputDirectory))
+            using (var outputDescriptor = GetOutput(arguments))
             using (var visiting = fileSystemVisitor.Enumerate(arguments.ArgumentList.ToArray()))
             {
                 while (visiting.MoveNext())
@@ -114,10 +114,19 @@ be ignored. Warnings will be written to STDERR.
             };
         }
 
-        private static IOutputDescriptor GetOutput(string outputDirectory)
+        private IOutputDescriptor GetOutput(Arguments arguments)
         {
-            if (String.IsNullOrWhiteSpace(outputDirectory)) return new OutputToConsole();
-            return new OutputToDirectoryHierarchy(Path.GetFullPath(outputDirectory));
+            switch (arguments.OutputTargetType)
+            {
+                case OutputTargetType.FileSystem:
+                    return new OutputToDirectoryHierarchy(Path.GetFullPath(arguments.OutputDirectory));
+
+                case OutputTargetType.Console:
+                    return new OutputToConsole();
+
+                default:
+                    throw new InvalidOperationException($"Unknown OutputTargetType: {arguments.OutputTargetType}");
+            }
         }
 
         private CancelMonitor cancelMonitor;
@@ -134,16 +143,6 @@ be ignored. Warnings will be written to STDERR.
                 line = Console.ReadLine();
             }
             return true;
-        }
-
-        public class Arguments : IArgumentList
-        {
-            public string OutputDirectory { get; set; }
-
-            public IList<string> ArgumentList { get; } = new List<string>();
-            public bool PrettyPrint { get; set; }
-            public bool UnwrapArchives { get; set; }
-            public char? SanitiseKeysCharacter { get; set; }
         }
     }
 }
