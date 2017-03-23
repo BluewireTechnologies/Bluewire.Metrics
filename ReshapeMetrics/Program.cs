@@ -65,7 +65,7 @@ be ignored. Warnings will be written to STDERR.
             if (!arguments.ArgumentList.Any()) return 1; // Nothing to do?
 
             var transformer = new MetricsUnrollingMetricsTransformer { SanitiseKeysCharacter = arguments.SanitiseKeysCharacter };
-            var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives });
+            var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives, Log = Log.Console });
 
             using (var outputDescriptor = GetOutput(arguments))
             using (var visiting = fileSystemVisitor.Enumerate(arguments.ArgumentList.ToArray()))

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using ICSharpCode.SharpZipLib.Zip;
+using log4net;
 
 namespace ReshapeMetrics
 {
@@ -61,6 +62,7 @@ namespace ReshapeMetrics
         private IEnumerable<IInputFile> EnumerateDirectory(DirectoryInfo directory, string contextPath = "")
         {
             var thisContextPath = Path.Combine(contextPath, directory.Name);
+            options.Log.InfoFormat("Entering directory {0}", thisContextPath);
             foreach (var file in directory.EnumerateFiles())
             {
                 foreach (var child in EnumerateFile(file, thisContextPath)) yield return child;
@@ -69,11 +71,13 @@ namespace ReshapeMetrics
             {
                 foreach (var child in EnumerateDirectory(subdirectory, thisContextPath)) yield return child;
             }
+            options.Log.InfoFormat("Leaving directory {0}", thisContextPath);
         }
 
         public IEnumerable<IInputFile> EnumerateZipStream(Stream zipStream, string zipFileName, string contextPath = "")
         {
             var thisContextPath = options.MergeZipFilesWithFolder ? contextPath : Path.Combine(contextPath, zipFileName);
+            options.Log.InfoFormat("Entering zipfile {0}", thisContextPath);
             // The caller owns the underlying Stream so we must not dispose it:
             using (var zipFile = new ZipInputStream(zipStream) { IsStreamOwner = false })
             {
@@ -94,6 +98,7 @@ namespace ReshapeMetrics
                     entry = zipFile.GetNextEntry();
                 }
             }
+            options.Log.InfoFormat("Leaving zipfile {0}", thisContextPath);
         }
 
         private static bool IsDirectory(string fullPath)
@@ -156,6 +161,7 @@ namespace ReshapeMetrics
         public struct Options
         {
             public bool MergeZipFilesWithFolder { get; set; }
+            public ILog Log { get; set; }
         }
     }
 }
