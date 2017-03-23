@@ -21,7 +21,7 @@ namespace ReshapeMetrics
                 { "o|output=", "Output directory", o => arguments.UseFileSystem(o) },
                 { "p|pretty|pretty-print|indent", "Generate readable, indented JSON instead of compacting it.", o => arguments.PrettyPrint = true },
                 { "a|archives|unwrap-archives", "Don't generate subdirectories for ZIP files in the output folder. Output all files directly.", o => arguments.UnwrapArchives = true },
-                { "s|sanitise:", "When unrolling arrays into dictionaries, squash questionable characters to the specified character. Default: _", (char? o) => arguments.SanitiseKeys(o) },
+                { "s|sanitise:", "When unrolling arrays into dictionaries, squash questionable characters to the specified character. Default: -", (char? o) => arguments.SanitiseKeys(o) },
             };
             var session = new ConsoleSession<Arguments>(arguments, options);
             session.ExtendedUsageDetails = @"

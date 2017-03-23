@@ -31,7 +31,7 @@ namespace ReshapeMetrics
 
         public void SanitiseKeys(char? character = null)
         {
-            SanitiseKeysCharacter = character ?? '_';
+            SanitiseKeysCharacter = character ?? '-';
         }
 
         public void UseFileSystem(string path)

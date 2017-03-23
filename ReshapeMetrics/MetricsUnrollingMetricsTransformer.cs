@@ -34,7 +34,7 @@ namespace ReshapeMetrics
         private string GetKeyString(string name)
         {
             if (SanitiseKeysCharacter == null) return name;
-            return rxQuestionableCharacters.Replace(name, new string(SanitiseKeysCharacter.Value, 1));
+            return rxQuestionableCharacters.Replace(name, new string(SanitiseKeysCharacter.Value, 1)).Trim(SanitiseKeysCharacter.Value);
         }
 
         private object TransformCounter(JsonCounter counter)
