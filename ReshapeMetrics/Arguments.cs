@@ -10,6 +10,7 @@ namespace ReshapeMetrics
     {
         public OutputTargetType OutputTargetType { get; private set; } 
         public string OutputDirectory { get; private set; }
+        public Uri ServerUri { get; private set; }
 
         public IList<string> ArgumentList { get; } = new List<string>();
         public bool PrettyPrint { get; set; }
@@ -39,6 +40,21 @@ namespace ReshapeMetrics
             if (OutputTargetType != default(OutputTargetType)) throw new InvalidArgumentsException("Cannot specify multiple output destinations.");
             OutputTargetType = OutputTargetType.FileSystem;
             OutputDirectory = path;
+        }
+
+        public void UseElasticSearch(string uri)
+        {
+            if (OutputTargetType != default(OutputTargetType)) throw new InvalidArgumentsException("Cannot specify multiple output destinations.");
+            OutputTargetType = OutputTargetType.ElasticSearch;
+            ServerUri = ParseAbsoluteUri(uri);
+            SanitiseKeys();
+        }
+
+        private static Uri ParseAbsoluteUri(string uriString)
+        {
+            Uri uri;
+            if (Uri.TryCreate(uriString, UriKind.Absolute, out uri)) return uri;
+            throw new InvalidArgumentsException($"Not a valid URI: {uriString}");
         }
     }
 }

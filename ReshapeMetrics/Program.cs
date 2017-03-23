@@ -19,6 +19,7 @@ namespace ReshapeMetrics
             var options = new OptionSet
             {
                 { "o|output=", "Output directory", o => arguments.UseFileSystem(o) },
+                { "es|elasticsearch=", "Post transformed metrics to an ElasticSearch URL. Implies -s.", o => arguments.UseElasticSearch(o) },
                 { "p|pretty|pretty-print|indent", "Generate readable, indented JSON instead of compacting it.", o => arguments.PrettyPrint = true },
                 { "a|archives|unwrap-archives", "Don't generate subdirectories for ZIP files in the output folder. Output all files directly.", o => arguments.UnwrapArchives = true },
                 { "s|sanitise:", "When unrolling arrays into dictionaries, squash questionable characters to the specified character. Default: -", (char? o) => arguments.SanitiseKeys(o) },
@@ -49,6 +50,15 @@ An entire directory hierarchy can be processed recursively in one go:
 
 ZIP archives are treated as directories. Any files which cannot be parsed will
 be ignored. Warnings will be written to STDERR.
+
+Transformed files can be posted directly to an ElasticSearch instance. The base
+URL can be varied on a per-file basis using placeholders to reference values in
+the Environment component of the metrics:
+
+    ReshapeMetrics --es http://monitoring.local/{Machine}_{AppVersion}/ -
+
+The item type will always be 'metrics' and the ID will be generated from the
+timestamp.
 ";
 
             return session.Run(args, a => new Program().Run(a));
@@ -120,6 +130,13 @@ be ignored. Warnings will be written to STDERR.
             {
                 case OutputTargetType.FileSystem:
                     return new OutputToDirectoryHierarchy(Path.GetFullPath(arguments.OutputDirectory));
+
+                case OutputTargetType.ElasticSearch:
+                    {
+                        var output = new OutputToElasticSearch(arguments.ServerUri.OriginalString);
+                        cancelMonitor.CancelRequested += (s, e) => output.Cancel();
+                        return output;
+                    }
 
                 case OutputTargetType.Console:
                     return new OutputToConsole();
