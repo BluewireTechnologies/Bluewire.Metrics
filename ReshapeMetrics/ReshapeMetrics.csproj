@@ -73,12 +73,20 @@
     <Compile Include="IMetricsTransformer.cs" />
     <Compile Include="IOutput.cs" />
     <Compile Include="IOutputDescriptor.cs" />
+    <Compile Include="ElasticSearch\ElasticSearchItemKeyGenerator.cs" />
+    <Compile Include="ElasticSearch\ElasticSearchPostQueueConsumer.cs" />
+    <Compile Include="ElasticSearch\ElasticSearchUriTemplate.cs" />
+    <Compile Include="Remote\ItemKey.cs" />
+    <Compile Include="Remote\PostItem.cs" />
+    <Compile Include="Remote\PostQueue.cs" />
     <Compile Include="MetricsUnrollingMetricsTransformer.cs" />
     <Compile Include="OutputToConsole.cs" />
     <Compile Include="OutputToDirectoryHierarchy.cs" />
+    <Compile Include="OutputToElasticSearch.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IInputFile.cs" />
+    <Compile Include="TaskHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
