@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,10 +18,10 @@ namespace ReshapeMetrics
             var arguments = new Arguments();
             var options = new OptionSet
             {
-                { "o|output=", "Output directory", o => arguments.OutputDirectory = o },
+                { "o|output=", "Output directory", o => arguments.UseFileSystem(o) },
                 { "p|pretty|pretty-print|indent", "Generate readable, indented JSON instead of compacting it.", o => arguments.PrettyPrint = true },
                 { "a|archives|unwrap-archives", "Don't generate subdirectories for ZIP files in the output folder. Output all files directly.", o => arguments.UnwrapArchives = true },
-                { "s|sanitise:", "When unrolling arrays into dictionaries, squash questionable characters to the specified character. Default: _", (char? o) => arguments.SanitiseKeysCharacter = o ?? '_' },
+                { "s|sanitise:", "When unrolling arrays into dictionaries, squash questionable characters to the specified character. Default: -", (char? o) => arguments.SanitiseKeys(o) },
             };
             var session = new ConsoleSession<Arguments>(arguments, options);
             session.ExtendedUsageDetails = @"
@@ -58,41 +57,79 @@ be ignored. Warnings will be written to STDERR.
         public int Run(Arguments arguments)
         {
             Log.Configure();
+            Log.SetConsoleVerbosity(arguments.Verbosity);
+            cancelMonitor = new CancelMonitor();
+            cancelMonitor.LogRequestsToConsole();
+
             MaybeReadInputsFromSTDIN(arguments);
             if (!arguments.ArgumentList.Any()) return 1; // Nothing to do?
 
-            var outputDescriptor = GetOutput(arguments.OutputDirectory);
-            var transformer = new MetricsUnrollingTransformer { PrettyPrint = arguments.PrettyPrint, SanitiseKeysCharacter = arguments.SanitiseKeysCharacter };
-            var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives });
+            var transformer = new MetricsUnrollingMetricsTransformer { SanitiseKeysCharacter = arguments.SanitiseKeysCharacter };
+            var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives, Log = Log.Console });
 
-
+            using (var outputDescriptor = GetOutput(arguments))
             using (var visiting = fileSystemVisitor.Enumerate(arguments.ArgumentList.ToArray()))
             {
                 while (visiting.MoveNext())
                 {
+                    cancelMonitor.CheckForCancel();
                     try
                     {
-                        using (var output = outputDescriptor.GetOutputFor(visiting.Current.RelativePath))
+                        var content = visiting.Current.GetReader().ReadToEnd();
+                        var metrics = JsonConvert.DeserializeObject<JsonMetrics>(content, GetDeserialiserSettings());
+
+                        var transformed = transformer.Transform(metrics);
+
+                        using (var output = outputDescriptor.GetOutputFor(visiting.Current.RelativePath, new EnvironmentLookup(metrics)))
                         {
-                            var content = visiting.Current.GetReader().ReadToEnd();
-                            transformer.Transform(content, output);
+                            output.GetWriter().WriteLine(JsonConvert.SerializeObject(transformed, GetSerialiserSettings(arguments.PrettyPrint)));
                         }
                     }
                     catch (Exception ex)
                     {
+                        cancelMonitor.CheckForCancel();
                         Log.Console.Warn($"Could not process file {visiting.Current.RelativePath}: {ex.Message}");
                     }
                 }
             }
+            cancelMonitor.CheckForCancel();
 
             return 0;
         }
 
-        private static IOutputDescriptor GetOutput(string outputDirectory)
+        private static JsonSerializerSettings GetDeserialiserSettings()
         {
-            if (String.IsNullOrWhiteSpace(outputDirectory)) return new OutputToConsole();
-            return new OutputToDirectoryHierarchy(Path.GetFullPath(outputDirectory));
+            return new JsonSerializerSettings() {
+                Converters = { new DoubleNaNAsNullJsonConverter() }
+            };
         }
+
+        private static JsonSerializerSettings GetSerialiserSettings(bool prettyPrint)
+        {
+            return new JsonSerializerSettings() {
+                NullValueHandling = NullValueHandling.Ignore,
+                DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                Formatting = prettyPrint ? Formatting.Indented : Formatting.None,
+                Converters = { new DoubleNaNAsNullJsonConverter() }
+            };
+        }
+
+        private IOutputDescriptor GetOutput(Arguments arguments)
+        {
+            switch (arguments.OutputTargetType)
+            {
+                case OutputTargetType.FileSystem:
+                    return new OutputToDirectoryHierarchy(Path.GetFullPath(arguments.OutputDirectory));
+
+                case OutputTargetType.Console:
+                    return new OutputToConsole();
+
+                default:
+                    throw new InvalidOperationException($"Unknown OutputTargetType: {arguments.OutputTargetType}");
+            }
+        }
+
+        private CancelMonitor cancelMonitor;
 
         private static bool MaybeReadInputsFromSTDIN(Arguments arguments)
         {
@@ -106,16 +143,6 @@ be ignored. Warnings will be written to STDERR.
                 line = Console.ReadLine();
             }
             return true;
-        }
-
-        public class Arguments : IArgumentList
-        {
-            public string OutputDirectory { get; set; }
-
-            public IList<string> ArgumentList { get; } = new List<string>();
-            public bool PrettyPrint { get; set; }
-            public bool UnwrapArchives { get; set; }
-            public char? SanitiseKeysCharacter { get; set; }
         }
     }
 }

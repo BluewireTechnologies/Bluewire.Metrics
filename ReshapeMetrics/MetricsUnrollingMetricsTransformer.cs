@@ -4,16 +4,16 @@ using Bluewire.Metrics.Json.Model;
 
 namespace ReshapeMetrics
 {
-    public class MetricsUnrollingTransformer : MetricsTransformer
+    public class MetricsUnrollingMetricsTransformer : IMetricsTransformer
     {
-        public override object Transform(JsonMetrics metrics)
+        public object Transform(JsonMetrics metrics)
         {
             return new {
                 metrics.Version,
                 metrics.Timestamp,
                 metrics.Context,
                 metrics.Environment,
-                ChildContexts = metrics.ChildContexts.ToDictionary(c => GetKeyString(c.Context), TransformContext)
+                ChildContexts = metrics.ChildContexts?.ToDictionary(c => GetKeyString(c.Context), TransformContext)
             };
         }
 
@@ -34,7 +34,7 @@ namespace ReshapeMetrics
         private string GetKeyString(string name)
         {
             if (SanitiseKeysCharacter == null) return name;
-            return rxQuestionableCharacters.Replace(name, new string(SanitiseKeysCharacter.Value, 1));
+            return rxQuestionableCharacters.Replace(name, new string(SanitiseKeysCharacter.Value, 1)).Trim(SanitiseKeysCharacter.Value);
         }
 
         private object TransformCounter(JsonCounter counter)

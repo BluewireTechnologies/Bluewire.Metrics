@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using ICSharpCode.SharpZipLib.Zip;
+using log4net;
 
 namespace ReshapeMetrics
 {
@@ -28,7 +30,6 @@ namespace ReshapeMetrics
 
         public IEnumerator<IInputFile> Enumerate(string[] paths)
         {
-            
             foreach (var path in paths)
             {
                 if (IsDirectory(path))
@@ -45,7 +46,7 @@ namespace ReshapeMetrics
 
         private IEnumerable<IInputFile> EnumerateFile(FileInfo file, string contextPath = "")
         {
-            if (StringComparer.OrdinalIgnoreCase.Equals(file.Extension, ".zip"))
+            if (IsProbablyZipFile(file.Extension))
             {
                 using (var zipStream = file.OpenRead())
                 {
@@ -61,6 +62,7 @@ namespace ReshapeMetrics
         private IEnumerable<IInputFile> EnumerateDirectory(DirectoryInfo directory, string contextPath = "")
         {
             var thisContextPath = Path.Combine(contextPath, directory.Name);
+            options.Log.InfoFormat("Entering directory {0}", thisContextPath);
             foreach (var file in directory.EnumerateFiles())
             {
                 foreach (var child in EnumerateFile(file, thisContextPath)) yield return child;
@@ -69,20 +71,22 @@ namespace ReshapeMetrics
             {
                 foreach (var child in EnumerateDirectory(subdirectory, thisContextPath)) yield return child;
             }
+            options.Log.InfoFormat("Leaving directory {0}", thisContextPath);
         }
 
         public IEnumerable<IInputFile> EnumerateZipStream(Stream zipStream, string zipFileName, string contextPath = "")
         {
             var thisContextPath = options.MergeZipFilesWithFolder ? contextPath : Path.Combine(contextPath, zipFileName);
-            // ZipInputStream owns the underlying Stream by default, and will dispose it:
-            using (var zipFile = new ZipInputStream(zipStream))
+            options.Log.InfoFormat("Entering zipfile {0}", thisContextPath);
+            // The caller owns the underlying Stream so we must not dispose it:
+            using (var zipFile = new ZipInputStream(zipStream) { IsStreamOwner = false })
             {
                 var entry = zipFile.GetNextEntry();
                 while (entry != null)
                 {
                     if (entry.IsFile)
                     {
-                        if (StringComparer.OrdinalIgnoreCase.Equals(Path.GetExtension(entry.Name), ".zip"))
+                        if (IsProbablyZipFile(Path.GetExtension(entry.Name)))
                         {
                             foreach (var child in EnumerateZipStream(zipFile, entry.Name, thisContextPath)) yield return child;
                         }
@@ -94,13 +98,19 @@ namespace ReshapeMetrics
                     entry = zipFile.GetNextEntry();
                 }
             }
+            options.Log.InfoFormat("Leaving zipfile {0}", thisContextPath);
         }
 
         private static bool IsDirectory(string fullPath)
         {
             return File.GetAttributes(fullPath).HasFlag(FileAttributes.Directory);
         }
-         
+
+        private bool IsProbablyZipFile(string fileExtension)
+        {
+            return StringComparer.OrdinalIgnoreCase.Equals(fileExtension, ".zip");
+        }
+
         class StandardFile : IInputFile
         {
             private readonly FileInfo file;
@@ -135,7 +145,7 @@ namespace ReshapeMetrics
 
             public FileInZip(string contextPath, ZipEntry file, Stream stream)
             {
-                reader = new StreamReader(stream);
+                reader = new StreamReader(stream, Encoding.UTF8, true, 4096, true);
                 RelativePath = Path.Combine(contextPath, file.Name);
             }
 
@@ -151,6 +161,7 @@ namespace ReshapeMetrics
         public struct Options
         {
             public bool MergeZipFilesWithFolder { get; set; }
+            public ILog Log { get; set; }
         }
     }
 }

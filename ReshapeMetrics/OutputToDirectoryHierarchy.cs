@@ -13,7 +13,7 @@ namespace ReshapeMetrics
             this.root = root;
         }
 
-        public IOutput GetOutputFor(string relativePath)
+        public IOutput GetOutputFor(string relativePath, EnvironmentLookup environment)
         {
             return new Impl(Path.Combine(root, relativePath));
         }
@@ -52,6 +52,10 @@ namespace ReshapeMetrics
                 stream?.Dispose();
                 stream = null;
             }
+        }
+
+        public void Dispose()
+        {
         }
     }
 }
