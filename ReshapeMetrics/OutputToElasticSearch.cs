@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Bluewire.Common.Console.Logging;
 using ReshapeMetrics.ElasticSearch;
 using ReshapeMetrics.Remote;
 
@@ -108,10 +109,16 @@ namespace ReshapeMetrics
                 {
                     handler = new QueueAndConsumer(uri, cts.Token);
                     handlers.Add(uri, handler);
-                    handler.Consumer.ContinueWith(t => cts.Cancel(), TaskContinuationOptions.OnlyOnFaulted);
+                    handler.Consumer.ContinueWith(OnConsumerFault, TaskContinuationOptions.OnlyOnFaulted);
                 }
                 return handler.Queue;
             }
+        }
+
+        private void OnConsumerFault(Task t)
+        {
+            Log.Console.Error("Queue consumer terminated unexpectedly.", t.Exception);
+            cts.Cancel();
         }
 
         private readonly CancellationTokenSource cts = new CancellationTokenSource();

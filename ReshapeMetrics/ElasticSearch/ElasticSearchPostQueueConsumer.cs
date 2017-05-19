@@ -22,11 +22,42 @@ namespace ReshapeMetrics.ElasticSearch
                 await postTask;
             }
         }
+
         private async Task Post(Uri baseUri, PostItem item, CancellationToken token)
         {
+            if (item == null)
+            {
+                Log.Console.Debug("Timed out while waiting for a document.");
+                return;
+            }
             var targetUri = new Uri(baseUri, $"{item.Key.Type}/{item.Key.Id}");
-            Log.Console.InfoFormat("Posting document to {0}", targetUri);
-            await client.PostAsync(targetUri, new StringContent(item.Json, Encoding.UTF8, "application/json"), token);
+            await PostWithRetry(targetUri, item, 3, token);
+        }
+
+        private static async Task PostWithRetry(Uri targetUri, PostItem item, int maximumTries, CancellationToken token)
+        {
+            var tries = 0;
+            Log.Console.Info($"Posting document to {targetUri}");
+            do
+            {
+                tries++;
+                try
+                {
+                    var response = await client.PostAsync(targetUri, new StringContent(item.Json, Encoding.UTF8, "application/json"), token);
+                    response.EnsureSuccessStatusCode();
+                    if (tries > 1) Log.Console.Debug($"Took {tries} attempts to post document to {targetUri}");
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    if (tries > maximumTries)
+                    {
+                        Log.Console.Error($"Could not post document to {targetUri}", ex);
+                        return;
+                    }
+                }
+            }
+            while (true);
         }
     }
 }
