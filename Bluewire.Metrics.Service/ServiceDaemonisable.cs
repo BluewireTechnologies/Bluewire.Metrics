@@ -47,6 +47,16 @@ namespace Bluewire.Metrics.Service
                 Log.Console.Info("Adding metrics: System performance counters");
                 config.WithSystemCounters();
             }
+            foreach (var wmiSource in serviceConfigurationSources.Wmi)
+            {
+                Log.Console.Info($"Adding metric: (WMI) {wmiSource.Name}");
+                
+            }
+        }
+
+        private void ApplyWmiSource(List<IEnvironmentEntrySource> configurationSources, WmiMetricsConfigurationElementCollection.WmiMetricConfigurationElement wmiMetric)
+        {
+
         }
 
         private void ApplyLoggingPolicy(MetricsConfig metricsConfig, PolicyConfigurationElement policy, IEnvironmentEntrySource[] environmentSources)

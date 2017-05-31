@@ -6,5 +6,8 @@ namespace Bluewire.Metrics.Service.Configuration
     {
         [ConfigurationProperty("performanceCounters")]
         public PerformanceCounterMetricsConfigurationElement PerformanceCounters => (PerformanceCounterMetricsConfigurationElement)base["performanceCounters"] ?? new PerformanceCounterMetricsConfigurationElement();
+        
+        [ConfigurationProperty("wmi")]
+        public WmiMetricsConfigurationElementCollection Wmi => (WmiMetricsConfigurationElementCollection)base["wmi"] ?? new WmiMetricsConfigurationElementCollection();
     }
 }
