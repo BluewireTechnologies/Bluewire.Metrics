@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,7 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\MetricsConfigurationSection.cs" />
+    <Compile Include="Configuration\PeriodicLogConfigurationElement.cs" />
     <Compile Include="CustomMetricsReportExtensions.cs" />
+    <Compile Include="IEnvironmentEntrySource.cs" />
     <Compile Include="JsonMetricsReport.cs" />
     <Compile Include="Periodic\FilesystemLogJail.cs" />
     <Compile Include="Periodic\ILogArchiver.cs" />
@@ -64,7 +67,9 @@
     <Compile Include="Periodic\PerMinuteLogPolicy.cs" />
     <Compile Include="Periodic\PerSecondLogPolicy.cs" />
     <Compile Include="Periodic\RelativePathMapper.cs" />
+    <Compile Include="Periodic\ZipLogArchiver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticEnvironmentBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Bluewire.MetricsAdapter.nuspec">
