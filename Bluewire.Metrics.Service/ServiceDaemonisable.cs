@@ -35,8 +35,18 @@ namespace Bluewire.Metrics.Service
             var serviceConfiguration = Loader.GetServiceConfiguration(configuration);
 
             var environmentSources = new List<IEnvironmentEntrySource>();
+            ApplySources(Metric.Config, environmentSources, serviceConfiguration.Sources);
             ApplyLoggingPolicy(Metric.Config, serviceConfiguration.Policy, environmentSources.ToArray());
             return new ServiceInstance();
+        }
+
+        private void ApplySources(MetricsConfig config, List<IEnvironmentEntrySource> configurationSources, SourcesConfigurationElement serviceConfigurationSources)
+        {
+            if (serviceConfigurationSources.PerformanceCounters.System)
+            {
+                Log.Console.Info("Adding metrics: System performance counters");
+                config.WithSystemCounters();
+            }
         }
 
         private void ApplyLoggingPolicy(MetricsConfig metricsConfig, PolicyConfigurationElement policy, IEnvironmentEntrySource[] environmentSources)

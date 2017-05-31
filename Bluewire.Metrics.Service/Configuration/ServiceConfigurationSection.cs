@@ -6,5 +6,8 @@ namespace Bluewire.Metrics.Service.Configuration
     {
         [ConfigurationProperty("policy")]
         public PolicyConfigurationElement Policy => (PolicyConfigurationElement)base["policy"] ?? new PolicyConfigurationElement();
+
+        [ConfigurationProperty("sources")]
+        public SourcesConfigurationElement Sources => (SourcesConfigurationElement)base["sources"] ?? new SourcesConfigurationElement();
     }
 }
