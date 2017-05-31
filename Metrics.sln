@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluewire.MetricsAdapter.Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionPackages", "SolutionPackages\SolutionPackages.csproj", "{F7E0A333-63E9-465A-A4B2-837ACD02E78F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluewire.Metrics.Service", "Bluewire.Metrics.Service\Bluewire.Metrics.Service.csproj", "{7261EC4B-0494-4BA0-8622-B5B21CD357B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{BE06805E-2F56-40A6-B719-B67B3A03A8F8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F7E0A333-63E9-465A-A4B2-837ACD02E78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7E0A333-63E9-465A-A4B2-837ACD02E78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7261EC4B-0494-4BA0-8622-B5B21CD357B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7261EC4B-0494-4BA0-8622-B5B21CD357B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7261EC4B-0494-4BA0-8622-B5B21CD357B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7261EC4B-0494-4BA0-8622-B5B21CD357B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
