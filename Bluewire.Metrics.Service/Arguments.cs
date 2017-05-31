@@ -11,5 +11,7 @@ namespace Bluewire.Metrics.Service
         private int logLevel = 1;
         public Level Verbosity => logLevels.ElementAtOrDefault(logLevel) ?? Level.All;
         public void Verbose() => logLevel++;
+
+        public string ConfigurationPath { get; set; }
     }
 }
