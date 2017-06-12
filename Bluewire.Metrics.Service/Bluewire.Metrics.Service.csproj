@@ -73,7 +73,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceDaemonisable.cs" />
     <Compile Include="ServiceInstance.cs" />
-    <Compile Include="WmiGauge.cs" />
+    <Compile Include="Wmi\IManagementObjectAccessor.cs" />
+    <Compile Include="Wmi\IWmiMetricProjection.cs" />
+    <Compile Include="Wmi\IWmiMetricsReceiver.cs" />
+    <Compile Include="Wmi\Projection\FilterExpression.cs" />
+    <Compile Include="Wmi\Projection\ManagementObjectAccessor.cs" />
+    <Compile Include="Wmi\Projection\NumericExpression.cs" />
+    <Compile Include="Wmi\Projection\StringExpression.cs" />
+    <Compile Include="Wmi\Projection\WmiMetricProjectionFactory.cs" />
+    <Compile Include="Wmi\Projection\WmiMetricProjectionDefinition.cs" />
+    <Compile Include="Wmi\Projection\WmiNumericMetricProjection.cs" />
+    <Compile Include="Wmi\Util.cs" />
+    <Compile Include="Wmi\WmiMetricsConfigurationMapper.cs" />
+    <Compile Include="Wmi\WmiMetricsDataProvider.cs" />
+    <Compile Include="Wmi\WmiMetricSource.cs" />
+    <Compile Include="Wmi\Projection\WmiStringMetricProjection.cs" />
+    <Compile Include="Wmi\WmiMetricsImplementation.cs" />
+    <Compile Include="Wmi\WmiMetricsReceiver.cs" />
+    <Compile Include="Wmi\WmiMetricType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

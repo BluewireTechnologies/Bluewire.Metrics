@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Bluewire.Common.Console;
 using Bluewire.Common.Console.Logging;
 using Bluewire.Common.Console.ThirdParty;
 using Bluewire.Metrics.Service.Configuration;
+using Bluewire.Metrics.Service.Wmi;
+using Bluewire.Metrics.Service.Wmi.Projection;
 using Bluewire.MetricsAdapter;
 using Bluewire.MetricsAdapter.Periodic;
 using Metrics;
 using Metrics.MetricData;
+using Metrics.Utils;
 
 namespace Bluewire.Metrics.Service
 {
@@ -47,16 +51,24 @@ namespace Bluewire.Metrics.Service
                 Log.Console.Info("Adding metrics: System performance counters");
                 config.WithSystemCounters();
             }
-            foreach (var wmiSource in serviceConfigurationSources.Wmi)
+            foreach (var wmiQueryDef in serviceConfigurationSources.Wmi.Queries)
             {
-                Log.Console.Info($"Adding metric: (WMI) {wmiSource.Name}");
-                
+                Log.Console.Info($"Adding metrics: (WMI) {wmiQueryDef.Context}");
+                ApplyWmiSource(configurationSources, wmiQueryDef);
             }
         }
 
-        private void ApplyWmiSource(List<IEnvironmentEntrySource> configurationSources, WmiMetricsConfigurationElementCollection.WmiMetricConfigurationElement wmiMetric)
+        private void ApplyWmiSource(List<IEnvironmentEntrySource> configurationSources, WmiMetricsConfigurationElementCollection.QueryElement wmiQueryDef)
         {
+            var source = new WmiMetricSource(wmiQueryDef.Scope, wmiQueryDef.From);
+            var projectionDefinitions = wmiQueryDef.Metrics.Select(new WmiMetricsConfigurationMapper().Map);
+            var projections = projectionDefinitions.Select(new WmiMetricProjectionFactory().Create).ToArray();
+            var dataProvider = new WmiMetricsDataProvider(Clock.Default);
 
+            var impl = new WmiMetricsImplementation(wmiQueryDef.Context, dataProvider, source, projections);
+
+            impl.AttachToContext(Metric.Advanced, new ActionScheduler(), wmiQueryDef.Interval);
+            configurationSources.Add(dataProvider.GetEnvironmentEntrySourceRelativeTo(null));
         }
 
         private void ApplyLoggingPolicy(MetricsConfig metricsConfig, PolicyConfigurationElement policy, IEnvironmentEntrySource[] environmentSources)
