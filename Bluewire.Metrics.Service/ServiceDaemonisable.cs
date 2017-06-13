@@ -41,6 +41,17 @@ namespace Bluewire.Metrics.Service
         private void ApplyLoggingPolicy(MetricsConfig metricsConfig, PolicyConfigurationElement policy, IEnvironmentEntrySource[] environmentSources)
         {
             var basePath = Loader.ResolveConfigurationToAbsolutePath(policy.BasePath);
+
+            if (policy.PerSecond.Enabled)
+            {
+                // Per-second metrics are only intended for debugging and profiling, not production use.
+                // Therefore log their initialisation at a higher priority.
+                Log.Console.Warn("Logging metrics every second.");
+                var targetPath = policy.PerSecond.GetLogLocation(basePath, "perSecond");
+                Log.Console.Info($"Per-second metrics will be written to {targetPath}");
+                metricsConfig.WithReporting(r => r.WithJsonReport(targetPath, new PerSecondLogPolicy(TimeSpan.FromHours(policy.PerSecond.HoursToKeep ?? 6)), new ZipLogArchiver(), environmentSources));
+            }
+
             if (policy.PerMinute.Enabled)
             {
                 Log.Console.Info("Logging metrics every minute.");
