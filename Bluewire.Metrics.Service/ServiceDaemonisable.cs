@@ -4,6 +4,7 @@ using Bluewire.Common.Console;
 using Bluewire.Common.Console.Logging;
 using Bluewire.Common.Console.ThirdParty;
 using Bluewire.Metrics.Service.Configuration;
+using Bluewire.Metrics.Service.Wmi;
 using Bluewire.MetricsAdapter;
 using Bluewire.MetricsAdapter.Periodic;
 using Metrics;
@@ -44,6 +45,13 @@ namespace Bluewire.Metrics.Service
             if (serviceConfigurationSources.PerformanceCounters.System)
             {
                 Log.Console.Info("Adding metrics: System performance counters");
+                config.WithSystemCounters();
+            }
+            if (serviceConfigurationSources.Wmi.Volumes?.Enabled == true)
+            {
+                Log.Console.Info("Adding metrics: WMI Win32_Volume");
+                var metricImpl = new Win32VolumeMetrics(Metric.Context("Volumes"));
+                metricImpl.Start(serviceConfigurationSources.Wmi.Volumes.Interval);
                 config.WithSystemCounters();
             }
         }
