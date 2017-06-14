@@ -15,9 +15,13 @@ namespace Bluewire.MetricsAdapter
     {
         private readonly ILog log = LogManager.GetLogger(typeof(JsonMetricsReport));
         private readonly PeriodicLog logImpl;
-        private readonly EnvironmentEntry[] extraEnvironment;
+        private readonly IEnvironmentEntrySource[] extraEnvironment;
 
-        public JsonMetricsReport(PeriodicLog log, params EnvironmentEntry[] extraEnvironment)
+        public JsonMetricsReport(PeriodicLog log, params EnvironmentEntry[] extraEnvironment) : this(log, new StaticEnvironmentBlock(extraEnvironment))
+        {
+        }
+
+        public JsonMetricsReport(PeriodicLog log, params IEnvironmentEntrySource[] extraEnvironment)
         {
             this.logImpl = log;
             this.extraEnvironment = extraEnvironment;
@@ -28,7 +32,7 @@ namespace Bluewire.MetricsAdapter
         private string GetReportContent(MetricsData metricsData, DateTimeOffset now)
         {
             return JsonBuilderV2.BuildJson(metricsData,
-                AppEnvironment.Current.Concat(extraEnvironment),
+                AppEnvironment.Current.Concat(extraEnvironment.SelectMany(e => e.GetEntries(now))),
                 Clock.Default,
                 PrettyPrintJson);
         }

@@ -11,5 +11,11 @@ namespace Bluewire.MetricsAdapter
             var jail = new FilesystemLogJail(baseDirectory, archiver);
             return reports.WithReport(new JsonMetricsReport(new PeriodicLog(policy, jail), extraEnvironment), policy.LogInterval);
         }
+
+        public static MetricsReports WithJsonReport(this MetricsReports reports, string baseDirectory, PeriodicLogPolicy policy, ILogArchiver archiver, params IEnvironmentEntrySource[] extraEnvironment)
+        {
+            var jail = new FilesystemLogJail(baseDirectory, archiver);
+            return reports.WithReport(new JsonMetricsReport(new PeriodicLog(policy, jail), extraEnvironment), policy.LogInterval);
+        }
     }
 }
