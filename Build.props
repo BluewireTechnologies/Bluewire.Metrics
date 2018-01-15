@@ -5,9 +5,11 @@
 
         <!-- Full list of NuGet package projects -->
         <NugetProjects Include="Bluewire.MetricsAdapter\Bluewire.MetricsAdapter.csproj" />
+        <NugetProjects Include="Bluewire.Metrics.Specialised\Bluewire.Metrics.Specialised.csproj" />
 
         <!-- Full list of NUnit test projects -->
         <NUnitProjects Include="Bluewire.MetricsAdapter.UnitTests\Bluewire.MetricsAdapter.UnitTests.csproj" />
+        <NUnitProjects Include="Bluewire.Metrics.Specialised.UnitTests\Bluewire.Metrics.Specialised.UnitTests.csproj" />
         
         <SemVerProjects Include="@(NugetProjects)" />
     </ItemGroup>
