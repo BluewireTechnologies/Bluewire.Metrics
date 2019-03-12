@@ -13,7 +13,7 @@ namespace Bluewire.MetricsAdapter.Periodic
             MaximumAge = maximumAge;
             ArchivalAge = archivalAge;
         }
-        
+
         /// <summary>
         /// Interval at which a new log should be written.
         /// </summary>
@@ -23,7 +23,7 @@ namespace Bluewire.MetricsAdapter.Periodic
         /// Age at which a log should be considered to be discardable.
         /// </summary>
         protected TimeSpan MaximumAge { get; }
-        
+
         /// <summary>
         /// Age at which a log should be considered a candidate for archive.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Bluewire.MetricsAdapter.Periodic
         public abstract string GetSubdirectoryName(DateTimeOffset now);
 
         public abstract string GetFileName(DateTimeOffset now);
-        
+
         /// <summary>
         /// From the specified set of subdirectories, return those containing only expired logs.
         /// </summary>

@@ -8,7 +8,7 @@ namespace ReshapeMetrics
 {
     public class Arguments : IArgumentList, IVerbosityArgument
     {
-        public OutputTargetType OutputTargetType { get; private set; } 
+        public OutputTargetType OutputTargetType { get; private set; }
         public string OutputDirectory { get; private set; }
         public Uri ServerUri { get; private set; }
 
@@ -24,7 +24,7 @@ namespace ReshapeMetrics
         {
             get { return logLevels.ElementAtOrDefault(logLevel) ?? Level.All; }
         }
-            
+
         public void Verbose()
         {
             logLevel++;

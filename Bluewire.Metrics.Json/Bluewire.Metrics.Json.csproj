@@ -6,4 +6,5 @@
   <ItemGroup>
     <None Remove="*.ncrunchproject" />
   </ItemGroup>
+  <Import Project="..\StyleCopAnalyzers.props" />
 </Project>

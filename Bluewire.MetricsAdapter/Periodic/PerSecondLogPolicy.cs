@@ -13,7 +13,7 @@ namespace Bluewire.MetricsAdapter.Periodic
         public PerSecondLogPolicy(TimeSpan maximumAge) : base(TimeSpan.FromSeconds(1), TimeSpan.FromMinutes(1), maximumAge)
         {
         }
-        
+
         public override string GetFileName(DateTimeOffset now)
         {
             return now.ToString("ss");

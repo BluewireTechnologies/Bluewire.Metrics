@@ -23,13 +23,13 @@ namespace Bluewire.MetricsAdapter.Periodic
         {
             var subdirFullPath = pathMapper.GetFullPath(subdirectoryName);
             var archivePath = Path.Combine(subdirFullPath, ArchiveFileName);
-            if(File.Exists(archivePath)) return;
-            
+            if (File.Exists(archivePath)) return;
+
             var zipMapper = new RelativePathMapper(subdirFullPath);
             var tempFilePath = pathMapper.GetFullPath(Guid.NewGuid().ToString());
 
             var sourceFiles = Directory.GetFiles(zipMapper.Root, "*", SearchOption.AllDirectories);
-            if(!sourceFiles.Any())
+            if (!sourceFiles.Any())
             {
                 Delete(subdirectoryName);
                 return;
@@ -41,11 +41,11 @@ namespace Bluewire.MetricsAdapter.Periodic
                     await archiver.Archive(archiveStream, sourceFiles.Select(f => new LogArchivePart(zipMapper.RemoveRoot(f), f)));
                 }
                 File.Move(tempFilePath, archivePath);
-                foreach(var file in sourceFiles) File.Delete(file);
+                foreach (var file in sourceFiles) File.Delete(file);
             }
             finally
             {
-                if(File.Exists(tempFilePath)) File.Delete(tempFilePath);
+                if (File.Exists(tempFilePath)) File.Delete(tempFilePath);
             }
         }
 
