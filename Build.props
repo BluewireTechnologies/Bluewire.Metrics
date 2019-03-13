@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup>
-        <OutputBinaryProjects Include="ReshapeMetrics\ReshapeMetrics.csproj" />
+        <OutputBinaryProjects Include="ReshapeMetrics\ReshapeMetrics.csproj">
+          <UseSemVer>True</UseSemVer>
+        </OutputBinaryProjects>
 
         <!-- Full list of NuGet package projects -->
         <NugetProjects Include="Bluewire.MetricsAdapter\Bluewire.MetricsAdapter.csproj" />
 
         <!-- Full list of NUnit test projects -->
-        <NUnitProjects Include="Bluewire.MetricsAdapter.UnitTests\Bluewire.MetricsAdapter.UnitTests.csproj" />
-        
-        <SemVerProjects Include="@(NugetProjects)" />
+        <NUnitProjects Include="**\*.UnitTests.csproj" />
     </ItemGroup>
+
+    <ItemDefinitionGroup>
+        <!-- Library repository: all packages use SemVer -->
+        <NugetProjects>
+            <UseSemVer>True</UseSemVer>
+        </NugetProjects>
+    </ItemDefinitionGroup>
+
+    <PropertyGroup>
+        <DotCoverConfigurationFile>DotCover.coverage.xml</DotCoverConfigurationFile>
+    </PropertyGroup>
 </Project>

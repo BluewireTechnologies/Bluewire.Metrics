@@ -7,8 +7,8 @@ namespace Bluewire.MetricsAdapter.Configuration
     {
         public string GetLogLocation(string baseDirectory, string defaultRelativePath)
         {
-            if(!Enabled) return null;
-            if(String.IsNullOrWhiteSpace(Path)) return System.IO.Path.Combine(baseDirectory, defaultRelativePath);
+            if (!Enabled) return null;
+            if (String.IsNullOrWhiteSpace(Path)) return System.IO.Path.Combine(baseDirectory, defaultRelativePath);
             return System.IO.Path.Combine(baseDirectory, Path);
         }
 
