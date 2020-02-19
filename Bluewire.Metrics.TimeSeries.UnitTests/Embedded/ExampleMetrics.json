@@ -1,0 +1,3045 @@
+{
+  "Version": "2",
+  "Timestamp": "2020-02-12T14:00:43.4309Z",
+  "Environment": {
+    "MachineName": "MACHINE",
+    "DomainName": "DOMAIN",
+    "UserName": "username",
+    "ProcessName": "iisexpress",
+    "OSVersion": "Microsoft Windows NT 10.0.17134.0",
+    "CPUCount": "8",
+    "CommandLine": "\"C:\\Program Files\\IIS Express\\iisexpress.exe\"  /config:\"C:\\Users\\username\\Documents\\IISExpress\\config\\applicationhost.config\"  /site:\"Bluewire.Epro.Web-Site\" /apppool:\"Clr4IntegratedAppPool\"",
+    "HostName": "MACHINE",
+    "IPAddress": "169.254.239.63",
+    "LocalTime": "2020-02-12T14:00:43.4369+00:00",
+    "EproLocation": "Full",
+    "EproInstanceType": "Live",
+    "CodebaseVersion": "1.0.0.0"
+  },
+  "Context": "MACHINE.iisexpress",
+  "ChildContexts": [
+    {
+      "Timestamp": "2020-02-12T14:00:43.4369Z",
+      "Context": "Interval Trees",
+      "Gauges": [
+        {
+          "Name": "Pending",
+          "Value": 0.0,
+          "Unit": "Updates"
+        },
+        {
+          "Name": "Prioritised",
+          "Value": 0.0,
+          "Unit": "Updates"
+        }
+      ],
+      "Counters": [
+        {
+          "Name": "Workers",
+          "Count": 0,
+          "Unit": ""
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Failed",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Updates",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Idle Notification",
+          "Count": 1,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.07,
+          "FifteenMinuteRate": 0.14,
+          "Unit": "",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Retried",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Updates",
+          "RateUnit": "s"
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Processed",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Updates",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.4379Z",
+      "Context": "System",
+      "Gauges": [
+        {
+          "Name": "% DPC Time",
+          "Value": 0.27,
+          "Unit": "%",
+          "Tags": [
+            "cpu",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "% Interrupt time",
+          "Value": 0.34,
+          "Unit": "%",
+          "Tags": [
+            "cpu",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "% Privileged Timer",
+          "Value": 3.95,
+          "Unit": "%",
+          "Tags": [
+            "cpu",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "% User Timer",
+          "Value": 7.65,
+          "Unit": "%",
+          "Tags": [
+            "cpu",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "ASP.NET Request Execution Time",
+          "Value": 13.0,
+          "Unit": "ms",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "ASP.NET Request Wait Time",
+          "Value": 0.0,
+          "Unit": "ms",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "ASP.NET Requests In Native Queue",
+          "Value": 0.0,
+          "Unit": "Requests",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "ASP.NET Requests Queued",
+          "Value": 0.0,
+          "Unit": "Requests",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "ASP.NET Requests Rejected",
+          "Value": 0.0,
+          "Unit": "Requests",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "Available RAM",
+          "Value": 2928.0,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "CPU Usage",
+          "Value": 11.59,
+          "Unit": "%",
+          "Tags": [
+            "cpu",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Free System Page Table Entries",
+          "Value": 12283335.0,
+          "Unit": "entries",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Interrupts / sec",
+          "Value": 13801.91,
+          "Unit": "interrupts/s",
+          "Tags": [
+            "cpu",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Logical Disk Avg. sec/Read",
+          "Value": 0.36,
+          "Unit": "ms",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Logical Disk Avg. sec/Write",
+          "Value": 0.43,
+          "Unit": "ms",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Logical Disk Reads/sec",
+          "Value": 0.01,
+          "Unit": "kb/s",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Logical Disk Transfers/sec",
+          "Value": 34.2,
+          "Unit": "Transfers",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Logical Disk Writes/sec",
+          "Value": 0.02,
+          "Unit": "kb/s",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Pages Input/sec",
+          "Value": 110.72,
+          "Unit": "pages/s",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Pages/sec",
+          "Value": 110.72,
+          "Unit": "pages/s",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Physical Disk Avg. sec/Read",
+          "Value": 0.36,
+          "Unit": "ms",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Physical Disk Avg. sec/Write",
+          "Value": 0.42,
+          "Unit": "ms",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Physical Disk Reads/sec",
+          "Value": 0.01,
+          "Unit": "kb/s",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Physical Disk Transfers/sec",
+          "Value": 34.2,
+          "Unit": "Transfers",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Physical Disk Writes/sec",
+          "Value": 0.02,
+          "Unit": "kb/s",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Pool Nonpaged MBytes",
+          "Value": 272.46,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Pool Paged MBytes",
+          "Value": 469.2,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.4479Z",
+      "Context": "Email Notifications",
+      "Counters": [
+        {
+          "Name": "Workers",
+          "Count": 0,
+          "Unit": ""
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Failed",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Items",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Idle Notification",
+          "Count": 1,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.07,
+          "FifteenMinuteRate": 0.14,
+          "Unit": "",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Retried",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Items",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Succeeded",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Items",
+          "RateUnit": "s"
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Processed",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Items",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.4489Z",
+      "Context": "Database Monitoring",
+      "ChildContexts": [
+        {
+          "Timestamp": "2020-02-12T14:00:43.4489Z",
+          "Context": "Client",
+          "Meters": [
+            {
+              "Name": "Failed",
+              "Count": 0,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.0,
+              "FifteenMinuteRate": 0.0,
+              "Unit": "",
+              "RateUnit": "s"
+            },
+            {
+              "Name": "Succeeded",
+              "Count": 6,
+              "MeanRate": 0.02,
+              "OneMinuteRate": 0.02,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Unit": "",
+              "RateUnit": "s"
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Complete Transaction",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 1,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 0.2,
+                "Min": 0.08,
+                "Mean": 0.16,
+                "StdDev": 0.05,
+                "Median": 0.2,
+                "Percentile75": 0.2,
+                "Percentile95": 0.2,
+                "Percentile98": 0.2,
+                "Percentile99": 0.2,
+                "Percentile999": 0.25,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            },
+            {
+              "Name": "Consume Reader",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 15,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 0.05,
+                "Min": 0.03,
+                "Mean": 0.15,
+                "StdDev": 1.23,
+                "Median": 0.05,
+                "Percentile75": 0.06,
+                "Percentile95": 0.06,
+                "Percentile98": 0.07,
+                "Percentile99": 0.07,
+                "Percentile999": 15.11,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            },
+            {
+              "Name": "ExecuteReader",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 4,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 0.44,
+                "Min": 0.2,
+                "Mean": 0.79,
+                "StdDev": 0.69,
+                "Median": 0.44,
+                "Percentile75": 0.48,
+                "Percentile95": 2.01,
+                "Percentile98": 2.01,
+                "Percentile99": 2.01,
+                "Percentile999": 2.01,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            },
+            {
+              "Name": "Open Connection",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 2,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 0.38,
+                "Min": 0.15,
+                "Mean": 0.32,
+                "StdDev": 0.09,
+                "Median": 0.38,
+                "Percentile75": 0.38,
+                "Percentile95": 0.38,
+                "Percentile98": 0.44,
+                "Percentile99": 0.44,
+                "Percentile999": 0.54,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            },
+            {
+              "Name": "Total",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 27,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 1.48,
+                "Min": 0.65,
+                "Mean": 1.79,
+                "StdDev": 1.63,
+                "Median": 1.48,
+                "Percentile75": 1.57,
+                "Percentile95": 2.67,
+                "Percentile98": 2.67,
+                "Percentile99": 2.67,
+                "Percentile999": 20.17,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2020-02-12T14:00:43.4489Z",
+          "Context": "Server",
+          "Timers": [
+            {
+              "Name": "CPU Time",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 0,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 0.0,
+                "Min": 0.0,
+                "Mean": 0.0,
+                "StdDev": 0.0,
+                "Median": 0.0,
+                "Percentile75": 0.0,
+                "Percentile95": 0.0,
+                "Percentile98": 0.0,
+                "Percentile99": 0.0,
+                "Percentile999": 0.0,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            },
+            {
+              "Name": "Elapsed Time",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 0,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 0.0,
+                "Min": 0.0,
+                "Mean": 0.0,
+                "StdDev": 0.0,
+                "Median": 0.0,
+                "Percentile75": 0.0,
+                "Percentile95": 0.0,
+                "Percentile98": 0.0,
+                "Percentile99": 0.0,
+                "Percentile999": 0.0,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.4489Z",
+      "Context": "Mesh Distribution Tracking",
+      "Gauges": [
+        {
+          "Name": "Pending",
+          "Value": 0.0,
+          "Unit": "Updates"
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Failed",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Updates",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Idle Notification",
+          "Count": 2,
+          "MeanRate": 0.01,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.07,
+          "FifteenMinuteRate": 0.14,
+          "Unit": "",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Repeated",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Updates",
+          "RateUnit": "s"
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Processed",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Updates",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.4489Z",
+      "Context": "Distribution",
+      "Gauges": [
+        {
+          "Name": "Pending",
+          "Value": 0.0,
+          "Unit": "Documents"
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Failed",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Documents",
+          "RateUnit": "s"
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Dispatched",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Documents",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.4489Z",
+      "Context": "Transcription",
+      "Gauges": [
+        {
+          "Name": "Pending",
+          "Value": 0.0,
+          "Unit": "Requests"
+        },
+        {
+          "Name": "Prioritised",
+          "Value": 0.0,
+          "Unit": "Requests"
+        }
+      ],
+      "Counters": [
+        {
+          "Name": "Workers",
+          "Count": 0,
+          "Unit": "Requests"
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Failed",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Idle Notification",
+          "Count": 5,
+          "MeanRate": 0.02,
+          "OneMinuteRate": 0.01,
+          "FiveMinuteRate": 0.08,
+          "FifteenMinuteRate": 0.15,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Repeated",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Succeeded",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Processed",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Requests",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        },
+        {
+          "Name": "Queued",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Requests",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.4489Z",
+      "Context": "Logging",
+      "Meters": [
+        {
+          "Name": "Error",
+          "Count": 2,
+          "MeanRate": 0.01,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.16,
+          "FifteenMinuteRate": 0.29,
+          "Unit": "Events",
+          "RateUnit": "s",
+          "Items": [
+            {
+              "Item": "Report",
+              "Count": 2,
+              "MeanRate": 0.01,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.16,
+              "FifteenMinuteRate": 0.29,
+              "Percent": 100.0
+            }
+          ]
+        },
+        {
+          "Name": "Fatal",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Events",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Warning",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Events",
+          "RateUnit": "s"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.4489Z",
+      "Context": "Service",
+      "ChildContexts": [
+        {
+          "Timestamp": "2020-02-12T14:00:43.4489Z",
+          "Context": "BlobStorage",
+          "Meters": [
+            {
+              "Name": "Succeeded",
+              "Count": 741,
+              "MeanRate": 2.49,
+              "OneMinuteRate": 1.39,
+              "FiveMinuteRate": 58.2,
+              "FifteenMinuteRate": 108.43,
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "Items": [
+                {
+                  "Item": "GetVersion",
+                  "Count": 1,
+                  "MeanRate": 0.0,
+                  "OneMinuteRate": 0.0,
+                  "FiveMinuteRate": 0.08,
+                  "FifteenMinuteRate": 0.15,
+                  "Percent": 0.13
+                },
+                {
+                  "Item": "Stream",
+                  "Count": 740,
+                  "MeanRate": 2.49,
+                  "OneMinuteRate": 1.39,
+                  "FiveMinuteRate": 58.12,
+                  "FifteenMinuteRate": 108.28,
+                  "Percent": 99.87
+                }
+              ]
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Request",
+              "Count": 741,
+              "ActiveSessions": 0,
+              "TotalTime": 2877,
+              "Rate": {
+                "MeanRate": 2.49,
+                "OneMinuteRate": 1.39,
+                "FiveMinuteRate": 58.2,
+                "FifteenMinuteRate": 108.43
+              },
+              "Histogram": {
+                "LastValue": 4.37,
+                "LastUserValue": "Stream",
+                "Min": 2.01,
+                "MinUserValue": "Stream",
+                "Mean": 3.8,
+                "MaxUserValue": "GetVersion",
+                "StdDev": 20.03,
+                "Median": 2.67,
+                "Percentile75": 2.88,
+                "Percentile95": 4.83,
+                "Percentile98": 7.6,
+                "Percentile99": 10.56,
+                "Percentile999": 568.09,
+                "SampleSize": 741
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2020-02-12T14:00:43.4519Z",
+          "Context": "MetaParser",
+          "Meters": [
+            {
+              "Name": "Failed",
+              "Count": 1,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "Items": [
+                {
+                  "Item": "GetVersion",
+                  "Count": 1,
+                  "MeanRate": 0.0,
+                  "OneMinuteRate": 0.0,
+                  "FiveMinuteRate": 0.08,
+                  "FifteenMinuteRate": 0.15,
+                  "Percent": 100.0
+                }
+              ]
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Request",
+              "Count": 1,
+              "ActiveSessions": 0,
+              "TotalTime": 2006,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 2006.41,
+                "LastUserValue": "GetVersion",
+                "Min": 2006.41,
+                "MinUserValue": "GetVersion",
+                "Mean": 2006.41,
+                "MaxUserValue": "GetVersion",
+                "StdDev": 0.0,
+                "Median": 2006.41,
+                "Percentile75": 2006.41,
+                "Percentile95": 2006.41,
+                "Percentile98": 2006.41,
+                "Percentile99": 2006.41,
+                "Percentile999": 2006.41,
+                "SampleSize": 1
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2020-02-12T14:00:43.4529Z",
+          "Context": "Documents",
+          "Meters": [
+            {
+              "Name": "Succeeded",
+              "Count": 1,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "Items": [
+                {
+                  "Item": "GetVersion",
+                  "Count": 1,
+                  "MeanRate": 0.0,
+                  "OneMinuteRate": 0.0,
+                  "FiveMinuteRate": 0.08,
+                  "FifteenMinuteRate": 0.15,
+                  "Percent": 100.0
+                }
+              ]
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Request",
+              "Count": 1,
+              "ActiveSessions": 0,
+              "TotalTime": 2411,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 2410.62,
+                "LastUserValue": "GetVersion",
+                "Min": 2410.62,
+                "MinUserValue": "GetVersion",
+                "Mean": 2410.62,
+                "MaxUserValue": "GetVersion",
+                "StdDev": 0.0,
+                "Median": 2410.62,
+                "Percentile75": 2410.62,
+                "Percentile95": 2410.62,
+                "Percentile98": 2410.62,
+                "Percentile99": 2410.62,
+                "Percentile999": 2410.62,
+                "SampleSize": 1
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2020-02-12T14:00:43.4529Z",
+          "Context": "Speech",
+          "Meters": [
+            {
+              "Name": "Failed",
+              "Count": 1,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "Items": [
+                {
+                  "Item": "GetVersion",
+                  "Count": 1,
+                  "MeanRate": 0.0,
+                  "OneMinuteRate": 0.0,
+                  "FiveMinuteRate": 0.08,
+                  "FifteenMinuteRate": 0.15,
+                  "Percent": 100.0
+                }
+              ]
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Request",
+              "Count": 1,
+              "ActiveSessions": 0,
+              "TotalTime": 2010,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 2010.19,
+                "LastUserValue": "GetVersion",
+                "Min": 2010.19,
+                "MinUserValue": "GetVersion",
+                "Mean": 2010.19,
+                "MaxUserValue": "GetVersion",
+                "StdDev": 0.0,
+                "Median": 2010.19,
+                "Percentile75": 2010.19,
+                "Percentile95": 2010.19,
+                "Percentile98": 2010.19,
+                "Percentile99": 2010.19,
+                "Percentile999": 2010.19,
+                "SampleSize": 1
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2020-02-12T14:00:43.4529Z",
+          "Context": "ImageRecognition",
+          "Meters": [
+            {
+              "Name": "Failed",
+              "Count": 1,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "Items": [
+                {
+                  "Item": "GetVersion",
+                  "Count": 1,
+                  "MeanRate": 0.0,
+                  "OneMinuteRate": 0.0,
+                  "FiveMinuteRate": 0.08,
+                  "FifteenMinuteRate": 0.15,
+                  "Percent": 100.0
+                }
+              ]
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Request",
+              "Count": 1,
+              "ActiveSessions": 0,
+              "TotalTime": 2004,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 2004.38,
+                "LastUserValue": "GetVersion",
+                "Min": 2004.38,
+                "MinUserValue": "GetVersion",
+                "Mean": 2004.38,
+                "MaxUserValue": "GetVersion",
+                "StdDev": 0.0,
+                "Median": 2004.38,
+                "Percentile75": 2004.38,
+                "Percentile95": 2004.38,
+                "Percentile98": 2004.38,
+                "Percentile99": 2004.38,
+                "Percentile999": 2004.38,
+                "SampleSize": 1
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2020-02-12T14:00:43.4529Z",
+          "Context": "ReportingService2010",
+          "Meters": [
+            {
+              "Name": "Failed",
+              "Count": 4,
+              "MeanRate": 0.01,
+              "OneMinuteRate": 0.01,
+              "FiveMinuteRate": 0.31,
+              "FifteenMinuteRate": 0.59,
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "Items": [
+                {
+                  "Item": "CheckAvailability",
+                  "Count": 1,
+                  "MeanRate": 0.0,
+                  "OneMinuteRate": 0.0,
+                  "FiveMinuteRate": 0.08,
+                  "FifteenMinuteRate": 0.15,
+                  "Percent": 25.0
+                },
+                {
+                  "Item": "ListChildren",
+                  "Count": 3,
+                  "MeanRate": 0.01,
+                  "OneMinuteRate": 0.01,
+                  "FiveMinuteRate": 0.24,
+                  "FifteenMinuteRate": 0.44,
+                  "Percent": 75.0
+                }
+              ]
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Request",
+              "Count": 4,
+              "ActiveSessions": 0,
+              "TotalTime": 8924,
+              "Rate": {
+                "MeanRate": 0.01,
+                "OneMinuteRate": 0.01,
+                "FiveMinuteRate": 0.31,
+                "FifteenMinuteRate": 0.59
+              },
+              "Histogram": {
+                "LastValue": 2001.34,
+                "LastUserValue": "ListChildren",
+                "Min": 2001.34,
+                "MinUserValue": "ListChildren",
+                "Mean": 2209.18,
+                "MaxUserValue": "ListChildren",
+                "StdDev": 373.77,
+                "Median": 2001.47,
+                "Percentile75": 2019.51,
+                "Percentile95": 2901.72,
+                "Percentile98": 2901.72,
+                "Percentile99": 2901.72,
+                "Percentile999": 2901.72,
+                "SampleSize": 4
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.4529Z",
+      "Context": "Application",
+      "Gauges": [
+        {
+          "Name": "Allocated Bytes/second",
+          "Value": 4183.91,
+          "Unit": "Kb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "ASP.NET Request Execution Time",
+          "Value": 13.0,
+          "Unit": "ms",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "ASP.NET Request Wait Time",
+          "Value": 0.0,
+          "Unit": "ms",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "ASP.NET Requests In Application Queue",
+          "Value": 0.0,
+          "Unit": "Requests",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "ASP.NET Requests/sec",
+          "Value": 0.0,
+          "Unit": "Requests",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "ASP.NET Unhandled Errors/sec",
+          "Value": 0.0,
+          "Unit": "Errors",
+          "Tags": [
+            "PerfCounter",
+            "asp.net"
+          ]
+        },
+        {
+          "Name": "Contention Rate / Sec",
+          "Value": 0.02,
+          "Unit": "Attempts",
+          "Tags": [
+            "threads",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Except Filters / Sec",
+          "Value": 0.0,
+          "Unit": "Filters",
+          "Tags": [
+            "exceptions",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Exceptions Thrown / Sec",
+          "Value": 0.0,
+          "Unit": "Exceptions",
+          "Tags": [
+            "exceptions",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Finallys / Sec",
+          "Value": 0.0,
+          "Unit": "Finallys",
+          "Tags": [
+            "exceptions",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Gen 0 heap size",
+          "Value": 122.19,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Gen 1 heap size",
+          "Value": 0.18,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Gen 2 heap size",
+          "Value": 272.25,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "iisexpress Threads",
+          "Value": 91.0,
+          "Unit": "Threads",
+          "Tags": [
+            "threads"
+          ]
+        },
+        {
+          "Name": "iisexpress Uptime Hours",
+          "Value": 0.09,
+          "Unit": "Hours"
+        },
+        {
+          "Name": "iisexpress Uptime Seconds",
+          "Value": 317.74,
+          "Unit": "Seconds"
+        },
+        {
+          "Name": "IO Data Operations/sec",
+          "Value": 30.29,
+          "Unit": "IOPS",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "IO Other Operations/sec",
+          "Value": 6.32,
+          "Unit": "IOPS",
+          "Tags": [
+            "disk",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Large Object Heap size",
+          "Value": 82.57,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Logical Threads",
+          "Value": 55.0,
+          "Unit": "Threads",
+          "Tags": [
+            "threads",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Mb in all Heaps",
+          "Value": 355.0,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Physical Threads",
+          "Value": 47.0,
+          "Unit": "Threads",
+          "Tags": [
+            "threads",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Pinned Objects",
+          "Value": 312.0,
+          "Unit": "Objects",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Private MBytes",
+          "Value": 892.58,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Process CPU Usage",
+          "Value": 0.71,
+          "Unit": "%",
+          "Tags": [
+            "cpu",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Process Privileged Time",
+          "Value": 0.47,
+          "Unit": "%",
+          "Tags": [
+            "cpu",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Process User Time",
+          "Value": 0.24,
+          "Unit": "%",
+          "Tags": [
+            "cpu",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Queue Length / sec",
+          "Value": 0.03,
+          "Unit": "Threads",
+          "Tags": [
+            "threads",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Thread Pool Available Completion Ports",
+          "Value": 999.0,
+          "Unit": "Ports",
+          "Tags": [
+            "threads"
+          ]
+        },
+        {
+          "Name": "Thread Pool Available Threads",
+          "Value": 32763.0,
+          "Unit": "Threads",
+          "Tags": [
+            "threads"
+          ]
+        },
+        {
+          "Name": "Thread Pool Max Completion Ports",
+          "Value": 1000.0,
+          "Unit": "Ports",
+          "Tags": [
+            "threads"
+          ]
+        },
+        {
+          "Name": "Thread Pool Max Threads",
+          "Value": 32767.0,
+          "Unit": "Threads",
+          "Tags": [
+            "threads"
+          ]
+        },
+        {
+          "Name": "Thread Pool Min Completion Ports",
+          "Value": 8.0,
+          "Unit": "Ports",
+          "Tags": [
+            "threads"
+          ]
+        },
+        {
+          "Name": "Thread Pool Min Threads",
+          "Value": 8.0,
+          "Unit": "Threads",
+          "Tags": [
+            "threads"
+          ]
+        },
+        {
+          "Name": "Throw to Catch Depth / Sec",
+          "Value": 0.0,
+          "Unit": "Stack Frames",
+          "Tags": [
+            "exceptions",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Time in GC",
+          "Value": 0.25,
+          "Unit": "%",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Total Contentions",
+          "Value": 177.0,
+          "Unit": "Attempts",
+          "Tags": [
+            "threads",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Total Exceptions",
+          "Value": 2663.0,
+          "Unit": "Exceptions",
+          "Tags": [
+            "exceptions",
+            "PerfCounter"
+          ]
+        },
+        {
+          "Name": "Working Set",
+          "Value": 926.61,
+          "Unit": "Mb",
+          "Tags": [
+            "memory",
+            "PerfCounter"
+          ]
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.5296Z",
+      "Context": "Denormalisations",
+      "Gauges": [
+        {
+          "Name": "Pending",
+          "Value": 0.0,
+          "Unit": "Updates"
+        },
+        {
+          "Name": "Prioritised",
+          "Value": 0.0,
+          "Unit": "Updates"
+        }
+      ],
+      "Counters": [
+        {
+          "Name": "Workers",
+          "Count": 0,
+          "Unit": ""
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Failed",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Updates",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Idle Notification",
+          "Count": 2,
+          "MeanRate": 0.01,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.15,
+          "FifteenMinuteRate": 0.29,
+          "Unit": "",
+          "RateUnit": "s"
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Processed",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Updates",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        },
+        {
+          "Name": "Queued",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Updates",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.5296Z",
+      "Context": "Grid",
+      "Meters": [
+        {
+          "Name": "Retry",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        }
+      ],
+      "Histograms": [
+        {
+          "Name": "Response Size",
+          "Count": 25,
+          "LastValue": 38816.0,
+          "LastUserValue": "Patient/Investigations",
+          "Min": 242.0,
+          "MinUserValue": "Patient/MiddleSlot/Vitals",
+          "Max": 38816.0,
+          "MaxUserValue": "Patient/Investigations",
+          "Mean": 5396.14,
+          "MaxUserValue": "Patient/Investigations",
+          "StdDev": 8999.84,
+          "Median": 2060.0,
+          "Percentile75": 3147.0,
+          "Percentile95": 21675.0,
+          "Percentile98": 38816.0,
+          "Percentile99": 38816.0,
+          "Percentile999": 38816.0,
+          "SampleSize": 25,
+          "Unit": "bytes"
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Query",
+          "Count": 25,
+          "ActiveSessions": 0,
+          "TotalTime": 3589,
+          "Rate": {
+            "MeanRate": 0.09,
+            "OneMinuteRate": 0.04,
+            "FiveMinuteRate": 1.81,
+            "FifteenMinuteRate": 3.37
+          },
+          "Histogram": {
+            "LastValue": 103.88,
+            "LastUserValue": "Patient/Investigations",
+            "Min": 9.03,
+            "MinUserValue": "RecentPatients",
+            "Mean": 143.86,
+            "MaxUserValue": "Patient/Overview/Allergies",
+            "StdDev": 92.34,
+            "Median": 123.69,
+            "Percentile75": 200.29,
+            "Percentile95": 322.12,
+            "Percentile98": 334.68,
+            "Percentile99": 334.68,
+            "Percentile999": 334.68,
+            "SampleSize": 25
+          },
+          "Unit": "Requests",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        },
+        {
+          "Name": "Request",
+          "Count": 25,
+          "ActiveSessions": 0,
+          "TotalTime": 3669,
+          "Rate": {
+            "MeanRate": 0.09,
+            "OneMinuteRate": 0.04,
+            "FiveMinuteRate": 1.81,
+            "FifteenMinuteRate": 3.37
+          },
+          "Histogram": {
+            "LastValue": 105.4,
+            "LastUserValue": "Patient/Investigations",
+            "Min": 9.47,
+            "MinUserValue": "RecentPatients",
+            "Mean": 147.01,
+            "MaxUserValue": "Patient/Overview/Allergies",
+            "StdDev": 92.37,
+            "Median": 124.53,
+            "Percentile75": 201.63,
+            "Percentile95": 324.42,
+            "Percentile98": 335.06,
+            "Percentile99": 335.06,
+            "Percentile999": 335.06,
+            "SampleSize": 25
+          },
+          "Unit": "Requests",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.5296Z",
+      "Context": "Live Migrations",
+      "Gauges": [
+        {
+          "Name": "Circuit Breaker Threshold",
+          "Value": 0.0,
+          "Unit": ""
+        },
+        {
+          "Name": "Pending",
+          "Value": 0.0,
+          "Unit": "Migrations"
+        },
+        {
+          "Name": "Prioritised",
+          "Value": 0.0,
+          "Unit": "Migrations"
+        }
+      ],
+      "Counters": [
+        {
+          "Name": "Workers",
+          "Count": 0,
+          "Unit": ""
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Failed",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Migrations",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Idle Notification",
+          "Count": 56,
+          "MeanRate": 0.18,
+          "OneMinuteRate": 0.02,
+          "FiveMinuteRate": 0.16,
+          "FifteenMinuteRate": 0.19,
+          "Unit": "",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Repeated",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Migrations",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Timeout",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Calls",
+          "RateUnit": "s"
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Processed",
+          "Count": 2406,
+          "ActiveSessions": 0,
+          "TotalTime": 29938,
+          "Rate": {
+            "MeanRate": 7.72,
+            "OneMinuteRate": 0.86,
+            "FiveMinuteRate": 3.63,
+            "FifteenMinuteRate": 2.05
+          },
+          "Histogram": {
+            "LastValue": 6.47,
+            "LastUserValue": "WorkflowStatusChanges",
+            "Min": 5.05,
+            "MinUserValue": "WorkflowStatusChanges",
+            "Mean": 9.77,
+            "MaxUserValue": "WorkflowStatusChanges",
+            "StdDev": 15.26,
+            "Median": 6.72,
+            "Percentile75": 8.03,
+            "Percentile95": 20.31,
+            "Percentile98": 33.39,
+            "Percentile99": 64.06,
+            "Percentile999": 201.23,
+            "SampleSize": 1028
+          },
+          "Unit": "Migrations",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        },
+        {
+          "Name": "Queued",
+          "Count": 2406,
+          "ActiveSessions": 0,
+          "TotalTime": 231667,
+          "Rate": {
+            "MeanRate": 7.72,
+            "OneMinuteRate": 0.86,
+            "FiveMinuteRate": 3.63,
+            "FifteenMinuteRate": 2.05
+          },
+          "Histogram": {
+            "LastValue": 82.74,
+            "Min": 0.0,
+            "Mean": 67.65,
+            "StdDev": 52.72,
+            "Median": 64.5,
+            "Percentile75": 91.93,
+            "Percentile95": 136.38,
+            "Percentile98": 177.1,
+            "Percentile99": 216.48,
+            "Percentile999": 542.95,
+            "SampleSize": 1028
+          },
+          "Unit": "Migrations",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        },
+        {
+          "Name": "Waited",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Requests",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.5316Z",
+      "Context": "Background Transcription",
+      "ChildContexts": [
+        {
+          "Timestamp": "2020-02-12T14:00:43.5316Z",
+          "Context": "Amazon",
+          "Timers": [
+            {
+              "Name": "BeginTranscription",
+              "Count": 0,
+              "ActiveSessions": 0,
+              "TotalTime": 0,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.0,
+                "FifteenMinuteRate": 0.0
+              },
+              "Histogram": {
+                "LastValue": 0.0,
+                "Min": 0.0,
+                "Mean": 0.0,
+                "StdDev": 0.0,
+                "Median": 0.0,
+                "Percentile75": 0.0,
+                "Percentile95": 0.0,
+                "Percentile98": 0.0,
+                "Percentile99": 0.0,
+                "Percentile999": 0.0,
+                "SampleSize": 0
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            },
+            {
+              "Name": "EndTranscription",
+              "Count": 0,
+              "ActiveSessions": 0,
+              "TotalTime": 0,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.0,
+                "FifteenMinuteRate": 0.0
+              },
+              "Histogram": {
+                "LastValue": 0.0,
+                "Min": 0.0,
+                "Mean": 0.0,
+                "StdDev": 0.0,
+                "Median": 0.0,
+                "Percentile75": 0.0,
+                "Percentile95": 0.0,
+                "Percentile98": 0.0,
+                "Percentile99": 0.0,
+                "Percentile999": 0.0,
+                "SampleSize": 0
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            },
+            {
+              "Name": "MonitorTranscription",
+              "Count": 0,
+              "ActiveSessions": 0,
+              "TotalTime": 0,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.0,
+                "FifteenMinuteRate": 0.0
+              },
+              "Histogram": {
+                "LastValue": 0.0,
+                "Min": 0.0,
+                "Mean": 0.0,
+                "StdDev": 0.0,
+                "Median": 0.0,
+                "Percentile75": 0.0,
+                "Percentile95": 0.0,
+                "Percentile98": 0.0,
+                "Percentile99": 0.0,
+                "Percentile999": 0.0,
+                "SampleSize": 0
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2020-02-12T14:00:43.5316Z",
+          "Context": "Google",
+          "Timers": [
+            {
+              "Name": "BeginTranscription",
+              "Count": 0,
+              "ActiveSessions": 0,
+              "TotalTime": 0,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.0,
+                "FifteenMinuteRate": 0.0
+              },
+              "Histogram": {
+                "LastValue": 0.0,
+                "Min": 0.0,
+                "Mean": 0.0,
+                "StdDev": 0.0,
+                "Median": 0.0,
+                "Percentile75": 0.0,
+                "Percentile95": 0.0,
+                "Percentile98": 0.0,
+                "Percentile99": 0.0,
+                "Percentile999": 0.0,
+                "SampleSize": 0
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            },
+            {
+              "Name": "EndTranscription",
+              "Count": 0,
+              "ActiveSessions": 0,
+              "TotalTime": 0,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.0,
+                "FifteenMinuteRate": 0.0
+              },
+              "Histogram": {
+                "LastValue": 0.0,
+                "Min": 0.0,
+                "Mean": 0.0,
+                "StdDev": 0.0,
+                "Median": 0.0,
+                "Percentile75": 0.0,
+                "Percentile95": 0.0,
+                "Percentile98": 0.0,
+                "Percentile99": 0.0,
+                "Percentile999": 0.0,
+                "SampleSize": 0
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            },
+            {
+              "Name": "MonitorTranscription",
+              "Count": 0,
+              "ActiveSessions": 0,
+              "TotalTime": 0,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.0,
+                "FifteenMinuteRate": 0.0
+              },
+              "Histogram": {
+                "LastValue": 0.0,
+                "Min": 0.0,
+                "Mean": 0.0,
+                "StdDev": 0.0,
+                "Median": 0.0,
+                "Percentile75": 0.0,
+                "Percentile95": 0.0,
+                "Percentile98": 0.0,
+                "Percentile99": 0.0,
+                "Percentile999": 0.0,
+                "SampleSize": 0
+              },
+              "Unit": "Requests",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.5316Z",
+      "Context": "Network Monitoring",
+      "ChildContexts": [
+        {
+          "Timestamp": "2020-02-12T14:00:43.5316Z",
+          "Context": "Forward DNS Lookup",
+          "Meters": [
+            {
+              "Name": "Failed",
+              "Count": 0,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.0,
+              "FifteenMinuteRate": 0.0,
+              "Unit": "",
+              "RateUnit": "s"
+            },
+            {
+              "Name": "Succeeded",
+              "Count": 6,
+              "MeanRate": 0.02,
+              "OneMinuteRate": 0.02,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Unit": "",
+              "RateUnit": "s",
+              "Items": [
+                {
+                  "Item": "dc.domain.com",
+                  "Count": 6,
+                  "MeanRate": 0.02,
+                  "OneMinuteRate": 0.02,
+                  "FiveMinuteRate": 0.08,
+                  "FifteenMinuteRate": 0.15,
+                  "Percent": 100.0
+                }
+              ]
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Test",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 3,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 0.95,
+                "LastUserValue": "dc.domain.com",
+                "Min": 0.2,
+                "MinUserValue": "dc.domain.com",
+                "Mean": 0.66,
+                "MaxUserValue": "dc.domain.com",
+                "StdDev": 0.35,
+                "Median": 0.95,
+                "Percentile75": 0.95,
+                "Percentile95": 0.95,
+                "Percentile98": 0.95,
+                "Percentile99": 0.95,
+                "Percentile999": 0.95,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2020-02-12T14:00:43.5316Z",
+          "Context": "Lookup DC",
+          "Meters": [
+            {
+              "Name": "Failed",
+              "Count": 0,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.0,
+              "FifteenMinuteRate": 0.0,
+              "Unit": "",
+              "RateUnit": "s"
+            },
+            {
+              "Name": "Succeeded",
+              "Count": 6,
+              "MeanRate": 0.02,
+              "OneMinuteRate": 0.02,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Unit": "",
+              "RateUnit": "s",
+              "Items": [
+                {
+                  "Item": "dc.domain.com",
+                  "Count": 6,
+                  "MeanRate": 0.02,
+                  "OneMinuteRate": 0.02,
+                  "FiveMinuteRate": 0.08,
+                  "FifteenMinuteRate": 0.15,
+                  "Percent": 100.0
+                }
+              ]
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Test",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 52,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 14.05,
+                "Min": 6.03,
+                "Mean": 10.87,
+                "StdDev": 3.86,
+                "Median": 14.05,
+                "Percentile75": 14.05,
+                "Percentile95": 14.05,
+                "Percentile98": 14.05,
+                "Percentile99": 14.05,
+                "Percentile999": 14.05,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2020-02-12T14:00:43.5316Z",
+          "Context": "Ping DC",
+          "Meters": [
+            {
+              "Name": "Failed",
+              "Count": 0,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.0,
+              "FifteenMinuteRate": 0.0,
+              "Unit": "",
+              "RateUnit": "s"
+            },
+            {
+              "Name": "Succeeded",
+              "Count": 6,
+              "MeanRate": 0.02,
+              "OneMinuteRate": 0.02,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Unit": "",
+              "RateUnit": "s",
+              "Items": [
+                {
+                  "Item": "192.168.0.250",
+                  "Count": 6,
+                  "MeanRate": 0.02,
+                  "OneMinuteRate": 0.02,
+                  "FiveMinuteRate": 0.08,
+                  "FifteenMinuteRate": 0.15,
+                  "Percent": 100.0
+                }
+              ]
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Test",
+              "Count": 6,
+              "ActiveSessions": 0,
+              "TotalTime": 7,
+              "Rate": {
+                "MeanRate": 0.02,
+                "OneMinuteRate": 0.02,
+                "FiveMinuteRate": 0.08,
+                "FifteenMinuteRate": 0.15
+              },
+              "Histogram": {
+                "LastValue": 1.82,
+                "LastUserValue": "192.168.0.250",
+                "Min": 0.54,
+                "MinUserValue": "192.168.0.250",
+                "Mean": 1.39,
+                "MaxUserValue": "192.168.0.250",
+                "StdDev": 0.53,
+                "Median": 1.82,
+                "Percentile75": 1.82,
+                "Percentile95": 1.82,
+                "Percentile98": 1.82,
+                "Percentile99": 1.82,
+                "Percentile999": 1.97,
+                "SampleSize": 6
+              },
+              "Unit": "",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.5316Z",
+      "Context": "OCR Requests",
+      "Gauges": [
+        {
+          "Name": "Pending",
+          "Value": 0.0,
+          "Unit": "Requests"
+        },
+        {
+          "Name": "Prioritised",
+          "Value": 0.0,
+          "Unit": "Requests"
+        }
+      ],
+      "Counters": [
+        {
+          "Name": "Workers",
+          "Count": 0,
+          "Unit": "Requests"
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Failed",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Idle Notification",
+          "Count": 1,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.07,
+          "FifteenMinuteRate": 0.14,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Repeated",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Succeeded",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Pages Processed",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Pages",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        },
+        {
+          "Name": "Processed",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Requests",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        },
+        {
+          "Name": "Queued",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Requests",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.5316Z",
+      "Context": "Service Bus",
+      "Gauges": [
+        {
+          "Name": "Queue Growth Rate (1 min)",
+          "Value": 0.0,
+          "Unit": "Messages / second"
+        },
+        {
+          "Name": "Queue Length",
+          "Value": 0.0,
+          "Unit": "Messages"
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Cleaned Up",
+          "Count": 2,
+          "MeanRate": 0.01,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Messages",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Failed",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Messages",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "In Doubt",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Messages",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Queued",
+          "Count": 4,
+          "MeanRate": 0.01,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Messages",
+          "RateUnit": "s",
+          "Items": [
+            {
+              "Item": "Bluewire.Epro.DataAccess.FluentNHibernate.Audit.AuditViewingOfPatientRecords",
+              "Count": 1,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Percent": 25.0
+            },
+            {
+              "Item": "Bluewire.Epro.DataAccess.FluentNHibernate.Audit.UpdateRecentlyAccessedPatientRecords",
+              "Count": 1,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Percent": 25.0
+            },
+            {
+              "Item": "Bluewire.Epro.Entities.DischargeSummaries.UpdatePatientPastDrugsMessageConsumer",
+              "Count": 2,
+              "MeanRate": 0.01,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.0,
+              "FifteenMinuteRate": 0.0,
+              "Percent": 50.0
+            }
+          ]
+        },
+        {
+          "Name": "Retried",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Messages",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Succeeded",
+          "Count": 4,
+          "MeanRate": 0.01,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Messages",
+          "RateUnit": "s",
+          "Items": [
+            {
+              "Item": "Bluewire.Epro.DataAccess.FluentNHibernate.Audit.AuditViewingOfPatientRecords",
+              "Count": 1,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Percent": 25.0
+            },
+            {
+              "Item": "Bluewire.Epro.DataAccess.FluentNHibernate.Audit.UpdateRecentlyAccessedPatientRecords",
+              "Count": 1,
+              "MeanRate": 0.0,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.08,
+              "FifteenMinuteRate": 0.15,
+              "Percent": 25.0
+            },
+            {
+              "Item": "Bluewire.Epro.Entities.DischargeSummaries.UpdatePatientPastDrugsMessageConsumer",
+              "Count": 2,
+              "MeanRate": 0.01,
+              "OneMinuteRate": 0.0,
+              "FiveMinuteRate": 0.0,
+              "FifteenMinuteRate": 0.0,
+              "Percent": 50.0
+            }
+          ]
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Consumed",
+          "Count": 4,
+          "ActiveSessions": 0,
+          "TotalTime": 171,
+          "Rate": {
+            "MeanRate": 0.01,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 6.34,
+            "LastUserValue": "Bluewire.Epro.Entities.DischargeSummaries.UpdatePatientPastDrugsMessageConsumer",
+            "Min": 5.05,
+            "MinUserValue": "Bluewire.Epro.Entities.DischargeSummaries.UpdatePatientPastDrugsMessageConsumer",
+            "Mean": 6.71,
+            "MaxUserValue": "Bluewire.Epro.DataAccess.FluentNHibernate.Audit.UpdateRecentlyAccessedPatientRecords",
+            "StdDev": 8.62,
+            "Median": 6.34,
+            "Percentile75": 6.34,
+            "Percentile95": 6.34,
+            "Percentile98": 6.34,
+            "Percentile99": 78.96,
+            "Percentile999": 80.24,
+            "SampleSize": 4
+          },
+          "Unit": "Messages",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ],
+      "ChildContexts": [
+        {
+          "Timestamp": "2020-02-12T14:00:43.5316Z",
+          "Context": "Backpressure",
+          "Gauges": [
+            {
+              "Name": "Multiplier, API",
+              "Value": 0.0,
+              "Unit": ""
+            },
+            {
+              "Name": "Multiplier, Recursive",
+              "Value": 0.0,
+              "Unit": ""
+            },
+            {
+              "Name": "Multiplier, System",
+              "Value": 0.0,
+              "Unit": ""
+            },
+            {
+              "Name": "Multiplier, User",
+              "Value": 0.0,
+              "Unit": ""
+            },
+            {
+              "Name": "Time per Message",
+              "Value": 6.34,
+              "Unit": "Milliseconds"
+            }
+          ],
+          "Timers": [
+            {
+              "Name": "Applied",
+              "Count": 0,
+              "ActiveSessions": 0,
+              "TotalTime": 0,
+              "Rate": {
+                "MeanRate": 0.0,
+                "OneMinuteRate": 0.0,
+                "FiveMinuteRate": 0.0,
+                "FifteenMinuteRate": 0.0
+              },
+              "Histogram": {
+                "LastValue": 0.0,
+                "Min": 0.0,
+                "Mean": 0.0,
+                "StdDev": 0.0,
+                "Median": 0.0,
+                "Percentile75": 0.0,
+                "Percentile95": 0.0,
+                "Percentile98": 0.0,
+                "Percentile99": 0.0,
+                "Percentile999": 0.0,
+                "SampleSize": 0
+              },
+              "Unit": "Messages",
+              "RateUnit": "s",
+              "DurationUnit": "ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Timestamp": "2020-02-12T14:00:43.5316Z",
+      "Context": "Lucene",
+      "Counters": [
+        {
+          "Name": "TLog Pending",
+          "Count": 0,
+          "Unit": "Items"
+        },
+        {
+          "Name": "TLog Total",
+          "Count": 0,
+          "Unit": "Items"
+        }
+      ],
+      "Meters": [
+        {
+          "Name": "Reader Reopened",
+          "Count": 0,
+          "MeanRate": 0.0,
+          "OneMinuteRate": 0.0,
+          "FiveMinuteRate": 0.0,
+          "FifteenMinuteRate": 0.0,
+          "Unit": "Requests",
+          "RateUnit": "s"
+        },
+        {
+          "Name": "Updated",
+          "Count": 249866,
+          "MeanRate": 833.4,
+          "OneMinuteRate": 98.97,
+          "FiveMinuteRate": 2554.66,
+          "FifteenMinuteRate": 4373.87,
+          "Unit": "Items",
+          "RateUnit": "s",
+          "Items": [
+            {
+              "Item": "GPPractice",
+              "Count": 5055,
+              "MeanRate": 16.86,
+              "OneMinuteRate": 4.95,
+              "FiveMinuteRate": 192.27,
+              "FifteenMinuteRate": 353.83,
+              "Percent": 2.02
+            },
+            {
+              "Item": "Dentists",
+              "Count": 6984,
+              "MeanRate": 23.29,
+              "OneMinuteRate": 7.15,
+              "FiveMinuteRate": 279.88,
+              "FifteenMinuteRate": 515.69,
+              "Percent": 2.8
+            },
+            {
+              "Item": "Address",
+              "Count": 19933,
+              "MeanRate": 66.48,
+              "OneMinuteRate": 10.55,
+              "FiveMinuteRate": 343.76,
+              "FifteenMinuteRate": 613.76,
+              "Percent": 7.98
+            },
+            {
+              "Item": "Users",
+              "Count": 22432,
+              "MeanRate": 74.82,
+              "OneMinuteRate": 9.83,
+              "FiveMinuteRate": 285.56,
+              "FifteenMinuteRate": 499.3,
+              "Percent": 8.98
+            },
+            {
+              "Item": "ICD",
+              "Count": 29561,
+              "MeanRate": 98.6,
+              "OneMinuteRate": 12.63,
+              "FiveMinuteRate": 364.72,
+              "FifteenMinuteRate": 636.29,
+              "Percent": 11.83
+            },
+            {
+              "Item": "GPs",
+              "Count": 40359,
+              "MeanRate": 134.61,
+              "OneMinuteRate": 13.94,
+              "FiveMinuteRate": 318.43,
+              "FifteenMinuteRate": 528.8,
+              "Percent": 16.15
+            },
+            {
+              "Item": "ClinicAppointment",
+              "Count": 54865,
+              "MeanRate": 183.0,
+              "OneMinuteRate": 17.96,
+              "FiveMinuteRate": 369.86,
+              "FifteenMinuteRate": 599.19,
+              "Percent": 21.96
+            },
+            {
+              "Item": "SnomedTradeFamilyDrugs",
+              "Count": 70677,
+              "MeanRate": 235.74,
+              "OneMinuteRate": 21.96,
+              "FiveMinuteRate": 400.18,
+              "FifteenMinuteRate": 627.01,
+              "Percent": 28.29
+            }
+          ]
+        }
+      ],
+      "Timers": [
+        {
+          "Name": "Queried",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Queries",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        },
+        {
+          "Name": "Queued",
+          "Count": 0,
+          "ActiveSessions": 0,
+          "TotalTime": 0,
+          "Rate": {
+            "MeanRate": 0.0,
+            "OneMinuteRate": 0.0,
+            "FiveMinuteRate": 0.0,
+            "FifteenMinuteRate": 0.0
+          },
+          "Histogram": {
+            "LastValue": 0.0,
+            "Min": 0.0,
+            "Mean": 0.0,
+            "StdDev": 0.0,
+            "Median": 0.0,
+            "Percentile75": 0.0,
+            "Percentile95": 0.0,
+            "Percentile98": 0.0,
+            "Percentile99": 0.0,
+            "Percentile999": 0.0,
+            "SampleSize": 0
+          },
+          "Unit": "Update Tasks",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        },
+        {
+          "Name": "Reader Refreshed",
+          "Count": 98,
+          "ActiveSessions": 0,
+          "TotalTime": 5451,
+          "Rate": {
+            "MeanRate": 0.33,
+            "OneMinuteRate": 0.1,
+            "FiveMinuteRate": 3.61,
+            "FifteenMinuteRate": 6.64
+          },
+          "Histogram": {
+            "LastValue": 0.68,
+            "LastUserValue": "SnomedTradeFamilyDrugs",
+            "Min": 0.29,
+            "MinUserValue": "Note",
+            "Mean": 54.48,
+            "MaxUserValue": "Users",
+            "StdDev": 204.42,
+            "Median": 1.39,
+            "Percentile75": 7.71,
+            "Percentile95": 405.17,
+            "Percentile98": 472.0,
+            "Percentile99": 1774.11,
+            "Percentile999": 1774.11,
+            "SampleSize": 98
+          },
+          "Unit": "Requests",
+          "RateUnit": "s",
+          "DurationUnit": "ms"
+        }
+      ]
+    }
+  ]
+}
