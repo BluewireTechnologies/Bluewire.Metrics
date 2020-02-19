@@ -6,6 +6,7 @@ namespace Bluewire.Metrics.Json.Model
         public long Count { get; set; }
         public double LastValue { get; set; }
         public double Min { get; set; }
+        public double Max { get; set; }
         public double Mean { get; set; }
         public double StdDev { get; set; }
         public double Median { get; set; }
@@ -21,6 +22,7 @@ namespace Bluewire.Metrics.Json.Model
         public string MaxUserValue { get; set; }
 
         public string Unit { get; set; }
+
         public string[] Tags { get; set; }
     }
 }

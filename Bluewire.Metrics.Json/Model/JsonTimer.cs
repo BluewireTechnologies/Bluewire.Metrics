@@ -5,6 +5,7 @@ namespace Bluewire.Metrics.Json.Model
         public string Name { get; set; }
         public long Count { get; set; }
         public long ActiveSessions { get; set; }
+        public long TotalTime { get; set; }
         public RateData Rate { get; set; }
         public HistogramData Histogram { get; set; }
         public string Unit { get; set; }
@@ -23,6 +24,7 @@ namespace Bluewire.Metrics.Json.Model
         {
             public double LastValue { get; set; }
             public double Min { get; set; }
+            public double Max { get; set; }
             public double Mean { get; set; }
             public double StdDev { get; set; }
             public double Median { get; set; }
@@ -36,8 +38,6 @@ namespace Bluewire.Metrics.Json.Model
             public string LastUserValue { get; set; }
             public string MinUserValue { get; set; }
             public string MaxUserValue { get; set; }
-
-            public string[] Tags { get; set; }
         }
     }
 }
