@@ -6,6 +6,7 @@
         </OutputBinaryProjects>
 
         <!-- Full list of NuGet package projects -->
+        <NugetProjects Include="Bluewire.Metrics.Json\Bluewire.Metrics.Json.csproj" />
         <NugetProjects Include="Bluewire.MetricsAdapter\Bluewire.MetricsAdapter.csproj" />
 
         <!-- Full list of NUnit test projects -->
