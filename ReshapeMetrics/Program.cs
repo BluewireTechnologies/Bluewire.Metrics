@@ -109,9 +109,7 @@ timestamp.
 
         private static JsonSerializerSettings GetDeserialiserSettings()
         {
-            return new JsonSerializerSettings() {
-                Converters = { new DoubleNaNAsNullJsonConverter() }
-            };
+            return new JsonSerializerSettings();
         }
 
         private static JsonSerializerSettings GetSerialiserSettings(bool prettyPrint)
@@ -120,7 +118,6 @@ timestamp.
                 NullValueHandling = NullValueHandling.Ignore,
                 DateFormatHandling = DateFormatHandling.IsoDateFormat,
                 Formatting = prettyPrint ? Formatting.Indented : Formatting.None,
-                Converters = { new DoubleNaNAsNullJsonConverter() }
             };
         }
 
