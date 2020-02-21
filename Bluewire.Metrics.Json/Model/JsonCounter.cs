@@ -12,7 +12,7 @@ namespace Bluewire.Metrics.Json.Model
         {
             public string Item { get; set; }
             public long Count { get; set; }
-            public double Percent { get; set; }
+            public double? Percent { get; set; }
         }
     }
 }

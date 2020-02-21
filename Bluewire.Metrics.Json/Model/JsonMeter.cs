@@ -4,10 +4,10 @@ namespace Bluewire.Metrics.Json.Model
     {
         public string Name { get; set; }
         public long Count { get; set; }
-        public double MeanRate { get; set; }
-        public double OneMinuteRate { get; set; }
-        public double FiveMinuteRate { get; set; }
-        public double FifteenMinuteRate { get; set; }
+        public double? MeanRate { get; set; }
+        public double? OneMinuteRate { get; set; }
+        public double? FiveMinuteRate { get; set; }
+        public double? FifteenMinuteRate { get; set; }
         public string Unit { get; set; }
         public string RateUnit { get; set; }
         public string[] Tags { get; set; }
@@ -17,11 +17,11 @@ namespace Bluewire.Metrics.Json.Model
         {
             public string Item { get; set; }
             public long Count { get; set; }
-            public double MeanRate { get; set; }
-            public double OneMinuteRate { get; set; }
-            public double FiveMinuteRate { get; set; }
-            public double FifteenMinuteRate { get; set; }
-            public double Percent { get; set; }
+            public double? MeanRate { get; set; }
+            public double? OneMinuteRate { get; set; }
+            public double? FiveMinuteRate { get; set; }
+            public double? FifteenMinuteRate { get; set; }
+            public double? Percent { get; set; }
         }
     }
 }

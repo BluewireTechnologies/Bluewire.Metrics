@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluewire.Metrics.Json", "Bluewire.Metrics.Json\Bluewire.Metrics.Json.csproj", "{F4F73C66-3001-47EC-B821-4F95C3ACFB00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bluewire.Metrics.Json", "Bluewire.Metrics.Json\Bluewire.Metrics.Json.csproj", "{F4F73C66-3001-47EC-B821-4F95C3ACFB00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReshapeMetrics", "ReshapeMetrics\ReshapeMetrics.csproj", "{AD674D3F-8A78-4CD6-AB3C-3E03A08671BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReshapeMetrics", "ReshapeMetrics\ReshapeMetrics.csproj", "{AD674D3F-8A78-4CD6-AB3C-3E03A08671BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluewire.MetricsAdapter", "Bluewire.MetricsAdapter\Bluewire.MetricsAdapter.csproj", "{5D3BEE3E-DBC2-4112-B7B8-EA5341B760A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bluewire.MetricsAdapter", "Bluewire.MetricsAdapter\Bluewire.MetricsAdapter.csproj", "{5D3BEE3E-DBC2-4112-B7B8-EA5341B760A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluewire.MetricsAdapter.UnitTests", "Bluewire.MetricsAdapter.UnitTests\Bluewire.MetricsAdapter.UnitTests.csproj", "{BE06805E-2F56-40A6-B719-B67B3A03A8F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bluewire.MetricsAdapter.UnitTests", "Bluewire.MetricsAdapter.UnitTests\Bluewire.MetricsAdapter.UnitTests.csproj", "{BE06805E-2F56-40A6-B719-B67B3A03A8F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionPackages", "SolutionPackages\SolutionPackages.csproj", "{F7E0A333-63E9-465A-A4B2-837ACD02E78F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionPackages", "SolutionPackages\SolutionPackages.csproj", "{F7E0A333-63E9-465A-A4B2-837ACD02E78F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bluewire.Metrics.TimeSeries", "Bluewire.Metrics.TimeSeries\Bluewire.Metrics.TimeSeries.csproj", "{ED2F78B5-23EB-4E2D-8A76-B5953B671656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluewire.Metrics.TimeSeries.UnitTests", "Bluewire.Metrics.TimeSeries.UnitTests\Bluewire.Metrics.TimeSeries.UnitTests.csproj", "{26FC192D-8431-40E9-BC67-05FA26D103E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,8 +41,19 @@ Global
 		{BE06805E-2F56-40A6-B719-B67B3A03A8F8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F7E0A333-63E9-465A-A4B2-837ACD02E78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7E0A333-63E9-465A-A4B2-837ACD02E78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED2F78B5-23EB-4E2D-8A76-B5953B671656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED2F78B5-23EB-4E2D-8A76-B5953B671656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED2F78B5-23EB-4E2D-8A76-B5953B671656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED2F78B5-23EB-4E2D-8A76-B5953B671656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26FC192D-8431-40E9-BC67-05FA26D103E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26FC192D-8431-40E9-BC67-05FA26D103E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26FC192D-8431-40E9-BC67-05FA26D103E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26FC192D-8431-40E9-BC67-05FA26D103E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84CB4ED8-26CC-439B-BE55-8D57083B9771}
 	EndGlobalSection
 EndGlobal

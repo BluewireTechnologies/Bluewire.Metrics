@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net46</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Embedded\ExampleMetrics.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Embedded\ExampleMetrics.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="NUnit" Version="3.11.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bluewire.Metrics.TimeSeries\Bluewire.Metrics.TimeSeries.csproj" />
+  </ItemGroup>
+  <Import Project="..\StyleCopAnalyzers.props" />
+</Project>
