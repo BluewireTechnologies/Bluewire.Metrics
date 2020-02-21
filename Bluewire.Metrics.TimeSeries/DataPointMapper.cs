@@ -182,52 +182,5 @@ namespace Bluewire.Metrics.TimeSeries
             if (!tags.Any()) return ImmutableDictionary<string, string>.Empty;
             return ImmutableDictionary<string, string>.Empty.AddRange(tags.Select(t => new KeyValuePair<string, string>(string.Concat("tag_", t), "yes")));
         }
-
-        class DataPointFactory
-        {
-            private readonly DataPoint prototype;
-            private readonly DateTimeOffset contextTimestamp;
-
-            public DataPointFactory(DataPoint prototype, DateTimeOffset contextTimestamp)
-            {
-                this.prototype = prototype;
-                this.contextTimestamp = contextTimestamp;
-            }
-
-            public DataPoint Create(Record record)
-            {
-                return new DataPoint
-                {
-                    Timestamp = contextTimestamp,
-                    MeasurementPath = prototype.MeasurementPath.Add(record.Name),
-                    Tags = prototype.Tags.AddRange(record.Tags?.Where(v => v.Value != null) ?? ImmutableDictionary<string, string>.Empty),
-                    Values = prototype.Values.AddRange(record.Values?.Where(v => v.Value != null) ?? ImmutableDictionary<string, object>.Empty),
-                };
-            }
-
-            public DataPointFactory GetChildFactory(Record record)
-            {
-                var childPrototype = Create(new Record { Name = "Children", Tags = record.Tags, Values = record.Values });
-                return new DataPointFactory(childPrototype, contextTimestamp);
-            }
-
-            public DataPoint CreateChild(Record record)
-            {
-                return new DataPoint
-                {
-                    Timestamp = contextTimestamp,
-                    MeasurementPath = prototype.MeasurementPath,
-                    Tags = prototype.Tags.Add("child", record.Name).AddRange(record.Tags ?? ImmutableDictionary<string, string>.Empty),
-                    Values = prototype.Values,
-                };
-            }
-        }
-
-        struct Record
-        {
-            public string Name { get; set; }
-            public ImmutableDictionary<string, string> Tags { get; set; }
-            public ImmutableDictionary<string, object> Values { get; set; }
-        }
     }
 }
