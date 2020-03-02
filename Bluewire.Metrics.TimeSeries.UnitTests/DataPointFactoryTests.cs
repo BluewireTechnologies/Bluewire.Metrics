@@ -66,9 +66,10 @@ namespace Bluewire.Metrics.TimeSeries.UnitTests
             parent.MeasurementPath = parent.MeasurementPath.Add("Parent");
             var factory = new DataPointFactory(parent, DateTimeOffset.Now);
 
-            var result = factory.CreateChild(new Record { Name = "Child" });
+            var childFactory = factory.GetChildFactory(new Record { Name = "Owner" });
+            var result = childFactory.CreateChild(new Record { Name = "Child" });
 
-            Assert.That(result.MeasurementPath, Is.EqualTo(ImmutableList<string>.Empty.Add("Parent")));
+            Assert.That(result.MeasurementPath, Does.Not.Contain("Child"));
         }
 
         [Test]
@@ -78,7 +79,8 @@ namespace Bluewire.Metrics.TimeSeries.UnitTests
             parent.MeasurementPath = parent.MeasurementPath.Add("Parent");
             var factory = new DataPointFactory(parent, DateTimeOffset.Now);
 
-            var result = factory.CreateChild(new Record { Name = "Child" });
+            var childFactory = factory.GetChildFactory(new Record { Name = "Owner" });
+            var result = childFactory.CreateChild(new Record { Name = "Child" });
 
             Assert.That(result.Tags, Is.EqualTo(ImmutableDictionary<string, string>.Empty.Add("child", "Child")));
         }
@@ -90,7 +92,8 @@ namespace Bluewire.Metrics.TimeSeries.UnitTests
             parent.Tags = parent.Tags.Add("ParentTag", "A");
             var factory = new DataPointFactory(parent, DateTimeOffset.Now);
 
-            var result = factory.CreateChild(new Record { Name = "Child", Tags = ImmutableDictionary<string, string>.Empty.Add("ChildTag", "B") });
+            var childFactory = factory.GetChildFactory(new Record { Name = "Owner" });
+            var result = childFactory.CreateChild(new Record { Name = "Child", Tags = ImmutableDictionary<string, string>.Empty.Add("ChildTag", "B") });
 
             Assert.That(result.Tags, Is.EqualTo(ImmutableDictionary<string, string>.Empty.Add("ParentTag", "A").Add("child", "Child").Add("ChildTag", "B")));
         }
@@ -102,7 +105,8 @@ namespace Bluewire.Metrics.TimeSeries.UnitTests
             parent.Values = parent.Values.Add("ParentValue", 1);
             var factory = new DataPointFactory(parent, DateTimeOffset.Now);
 
-            var result = factory.CreateChild(new Record { Name = "Child", Values = ImmutableDictionary<string, object>.Empty.Add("ChildValue", 2) });
+            var childFactory = factory.GetChildFactory(new Record { Name = "Owner" });
+            var result = childFactory.CreateChild(new Record { Name = "Child", Values = ImmutableDictionary<string, object>.Empty.Add("ChildValue", 2) });
 
             Assert.That(result.Values, Is.EqualTo(ImmutableDictionary<string, object>.Empty.Add("ChildValue", 2)));
         }
@@ -114,9 +118,46 @@ namespace Bluewire.Metrics.TimeSeries.UnitTests
             parent.Values = parent.Values.Add("ParentValue", 1);
             var factory = new DataPointFactory(parent, DateTimeOffset.Now);
 
-            var result = factory.CreateChild(new Record { Name = "Child", Values = ImmutableDictionary<string, object>.Empty.Add("ChildValue", null) });
+            var childFactory = factory.GetChildFactory(new Record { Name = "Owner" });
+            var result = childFactory.CreateChild(new Record { Name = "Child", Values = ImmutableDictionary<string, object>.Empty.Add("ChildValue", null) });
 
             Assert.That(result.Values, Is.EqualTo(ImmutableDictionary<string, object>.Empty));
+        }
+
+        [Test]
+        public void ChildFactoryIncludesOwnerNameInPath()
+        {
+            var parent = DataPoint.Create();
+            parent.MeasurementPath = parent.MeasurementPath.Add("Parent");
+            var factory = new DataPointFactory(parent, DateTimeOffset.Now);
+
+            var childFactory = factory.GetChildFactory(new Record { Name = "Owner" });
+            var result = childFactory.CreateChild(new Record { Name = "Child" });
+            Assert.That(result.MeasurementPath, Is.EqualTo(ImmutableList<string>.Empty.Add("Parent").Add("Owner").Add("Children")));
+        }
+
+        [Test]
+        public void ChildFactoryIncludesOwnerTags()
+        {
+            var parent = DataPoint.Create();
+            var factory = new DataPointFactory(parent, DateTimeOffset.Now);
+
+            var childFactory = factory.GetChildFactory(new Record { Name = "Owner", Tags = ImmutableDictionary<string, string>.Empty.Add("OwnerTag", "B") });
+            var result = childFactory.CreateChild(new Record { Name = "Child" });
+
+            Assert.That(result.Tags, Is.EqualTo(ImmutableDictionary<string, string>.Empty.Add("OwnerTag", "B").Add("child", "Child")));
+        }
+
+        [Test]
+        public void ChildFactoryDoesNotIncludeOwnerValues()
+        {
+            var parent = DataPoint.Create();
+            var factory = new DataPointFactory(parent, DateTimeOffset.Now);
+
+            var childFactory = factory.GetChildFactory(new Record { Name = "Owner", Values = ImmutableDictionary<string, object>.Empty.Add("OwnerValue", 1) });
+            var result = childFactory.CreateChild(new Record { Name = "Child", Values = ImmutableDictionary<string, object>.Empty.Add("ChildValue", 2) });
+
+            Assert.That(result.Values, Is.EqualTo(ImmutableDictionary<string, object>.Empty.Add("ChildValue", 2)));
         }
     }
 }
