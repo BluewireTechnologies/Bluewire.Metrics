@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.Contracts;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace Bluewire.Metrics.TimeSeries
 {
@@ -17,7 +16,9 @@ namespace Bluewire.Metrics.TimeSeries
 
         private static readonly Regex rxQuestionableCharacters = new Regex(@"\W+");
 
-        [Pure]
+#if NET46
+        [System.Diagnostics.Contracts.Pure]
+#endif
         public string Sanitise(string name)
         {
             if (replacementCharacter == null) return name;
