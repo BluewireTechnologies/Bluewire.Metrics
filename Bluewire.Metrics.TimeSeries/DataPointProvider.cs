@@ -7,11 +7,17 @@ namespace Bluewire.Metrics.TimeSeries
 {
     public class DataPointProvider
     {
+        private readonly ImmutableDictionary<string, string> prototypeEnvironment = ImmutableDictionary<string, string>.Empty;
         private readonly string[] environmentTagNames;
 
-        public DataPointProvider(string[] environmentTagNames)
+        public DataPointProvider(ImmutableDictionary<string, string> prototypeEnvironment, string[] environmentTagNames)
         {
+            this.prototypeEnvironment = prototypeEnvironment;
             this.environmentTagNames = environmentTagNames;
+        }
+
+        public DataPointProvider(string[] environmentTagNames) : this(ImmutableDictionary<string, string>.Empty, environmentTagNames)
+        {
         }
 
         public IEnumerable<DataPoint> Flatten(JsonMetrics metrics)
@@ -29,8 +35,8 @@ namespace Bluewire.Metrics.TimeSeries
 
         internal ImmutableDictionary<string, string> GetEnvironmentTags(Dictionary<string, object> environment)
         {
-            return ImmutableDictionary<string, string>.Empty
-                .AddRange(environment
+            return prototypeEnvironment
+                .SetItems(environment
                     .Where(e => environmentTagNames.Contains(e.Key))
                     .Select(e => new KeyValuePair<string, string>(e.Key, e.Value.ToString())));
         }
