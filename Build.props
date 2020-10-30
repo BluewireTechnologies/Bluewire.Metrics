@@ -9,6 +9,7 @@
         <NugetProjects Include="Bluewire.Metrics.Json\Bluewire.Metrics.Json.csproj" />
         <NugetProjects Include="Bluewire.Metrics.TimeSeries\Bluewire.Metrics.TimeSeries.csproj" />
         <NugetProjects Include="Bluewire.MetricsAdapter\Bluewire.MetricsAdapter.csproj" />
+        <NugetProjects Include="Metrics.IISApplicationCounters\Metrics.IISApplicationCounters.csproj" />
 
         <!-- Full list of NUnit test projects -->
         <NUnitProjects Include="**\*.UnitTests.csproj" />
