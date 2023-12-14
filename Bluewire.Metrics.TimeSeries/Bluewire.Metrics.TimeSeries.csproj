@@ -11,4 +11,11 @@
     <ProjectReference Include="..\Bluewire.Metrics.Json\Bluewire.Metrics.Json.csproj" />
   </ItemGroup>
   <Import Project="..\StyleCopAnalyzers.props" />
+  <ItemGroup>
+    <None Update="README.md">
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
 </Project>
