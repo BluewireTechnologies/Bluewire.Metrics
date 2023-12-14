@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net46;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>net48;net6</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Embedded\ExampleMetrics.json" />
@@ -9,11 +9,11 @@
     <EmbeddedResource Include="Embedded\ExampleMetrics.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.15.0" />
-    <PackageReference Include="TeamCity.VSTest.TestAdapter" Version="1.0.20" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="TeamCity.VSTest.TestAdapter" Version="1.0.38" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bluewire.Metrics.TimeSeries\Bluewire.Metrics.TimeSeries.csproj" />

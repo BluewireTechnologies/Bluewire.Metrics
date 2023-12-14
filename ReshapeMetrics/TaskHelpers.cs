@@ -37,8 +37,14 @@ namespace ReshapeMetrics
                     waitHandle,
                     (o, timeout) =>
                     {
-                        if (timeout) tcs.TrySetException(new TimeoutException());
-                        else tcs.TrySetResult(null);
+                        if (timeout)
+                        {
+                            tcs.TrySetException(new TimeoutException());
+                        }
+                        else
+                        {
+                            tcs.TrySetResult(null);
+                        }
                     },
                     null,
                     limitMilliseconds,

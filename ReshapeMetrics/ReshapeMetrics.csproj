@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <OutputType>Exe</OutputType>
     <VersionPrefix>1.0.0</VersionPrefix>
   </PropertyGroup>
@@ -15,15 +15,14 @@
     <PackageReference Include="Bluewire.Common.Console">
       <Version>10.2.1</Version>
     </PackageReference>
-    <PackageReference Include="Costura.Fody" Version="3.3.2">
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.1</Version>
+      <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="SharpZipLib">
-      <Version>1.1.0</Version>
+      <Version>1.4.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

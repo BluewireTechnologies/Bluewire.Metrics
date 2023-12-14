@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461</TargetFrameworks>
+    <TargetFrameworks>net48</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="*.ncrunchproject" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="JetBrains.dotCover.CommandLineTools" Version="2020.1.0">
+    <PackageReference Include="JetBrains.dotCover.CommandLineTools" Version="2023.2.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="NUnit.ConsoleRunner">
-      <Version>3.11.1</Version>
+      <Version>3.16.3</Version>
     </PackageReference>
     <PackageReference Include="NUnit.Extension.TeamCityEventListener">
-      <Version>1.0.7</Version>
+      <Version>1.0.9</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\StyleCopAnalyzers.props" />
