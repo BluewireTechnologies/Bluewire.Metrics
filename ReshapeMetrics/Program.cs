@@ -1,30 +1,29 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Bluewire.Common.Console;
 using Bluewire.Common.Console.Logging;
 using Bluewire.Common.Console.ThirdParty;
 using Newtonsoft.Json;
 using Bluewire.Metrics.Json.Model;
+using log4net.Core;
 
 namespace ReshapeMetrics
 {
-    class Program
+    class Program : IReceiveOptions
     {
         static int Main(string[] args)
         {
-            var arguments = new Arguments();
-            var options = new OptionSet
-            {
-                { "o|output=", "Output directory", o => arguments.UseFileSystem(o) },
-                { "es|elasticsearch=", "Post transformed metrics to an ElasticSearch URL. Implies -s.", o => arguments.UseElasticSearch(o) },
-                { "p|pretty|pretty-print|indent", "Generate readable, indented JSON instead of compacting it.", o => arguments.PrettyPrint = true },
-                { "a|archives|unwrap-archives", "Don't generate subdirectories for ZIP files in the output folder. Output all files directly.", o => arguments.UnwrapArchives = true },
-                { "s|sanitise:", "When unrolling arrays into dictionaries, squash questionable characters to the specified character. Default: -", (char? o) => arguments.SanitiseKeys(o) },
-            };
-            var session = new ConsoleSession<Arguments>(arguments, options);
+            var session = new ConsoleSession();
+            var cancellation = new CancelMonitor();
+            cancellation.LogRequestsToConsole();
+
+            var program = new Program();
+            session.Options.AddCollector(program);
+            var logging = session.Options.AddCollector(new SimpleConsoleLoggingPolicy() { Verbosity = { Default = Level.Info } });
+            session.Options.AddCollector(logging);
+
             session.ExtendedUsageDetails = @"
 This tool reshapes Metrics.NET JSON report files to make them easier to work
 with in eg. Kibana. This mostly involves converting arrays to dictionaries,
@@ -61,28 +60,48 @@ The item type will always be 'metrics' and the ID will be generated from the
 timestamp.
 ";
 
-            return session.Run(args, a => new Program().Run(a));
+            return session.Run(args, () =>
+            {
+                using (LoggingPolicy.Register(session, logging))
+                {
+                    try
+                    {
+                        return program.Run(cancellation.GetToken());
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        cancellation.CheckForCancel();
+                        throw;
+                    }
+                }
+            });
         }
 
-        public int Run(Arguments arguments)
-        {
-            Log.Configure();
-            Log.SetConsoleVerbosity(arguments.Verbosity);
-            cancelMonitor = new CancelMonitor();
-            cancelMonitor.LogRequestsToConsole();
+        private readonly Arguments arguments = new Arguments();
 
+        void IReceiveOptions.ReceiveFrom(OptionSet options)
+        {
+            options.Add("o|output=", "Output directory", o => arguments.UseFileSystem(o));
+            options.Add("es|elasticsearch=", "Post transformed metrics to an ElasticSearch URL. Implies -s.", o => arguments.UseElasticSearch(o));
+            options.Add("p|pretty|pretty-print|indent", "Generate readable, indented JSON instead of compacting it.", o => arguments.PrettyPrint = true);
+            options.Add("a|archives|unwrap-archives", "Don't generate subdirectories for ZIP files in the output folder. Output all files directly.", o => arguments.UnwrapArchives = true);
+            options.Add("s|sanitise:", "When unrolling arrays into dictionaries, squash questionable characters to the specified character. Default: -", (char? o) => arguments.SanitiseKeys(o));
+        }
+
+        public int Run(CancellationToken token)
+        {
             MaybeReadInputsFromSTDIN(arguments);
             if (!arguments.ArgumentList.Any()) return 1; // Nothing to do?
 
             var transformer = new MetricsUnrollingMetricsTransformer { SanitiseKeysCharacter = arguments.SanitiseKeysCharacter };
             var fileSystemVisitor = new FileSystemVisitor(new FileSystemVisitor.Options { MergeZipFilesWithFolder = arguments.UnwrapArchives, Log = Log.Console });
 
-            using (var outputDescriptor = GetOutput(arguments))
+            using (var outputDescriptor = GetOutput(token))
             using (var visiting = fileSystemVisitor.Enumerate(arguments.ArgumentList.ToArray()))
             {
                 while (visiting.MoveNext())
                 {
-                    cancelMonitor.CheckForCancel();
+                    token.ThrowIfCancellationRequested();
                     try
                     {
                         var content = visiting.Current.GetReader().ReadToEnd();
@@ -97,12 +116,12 @@ timestamp.
                     }
                     catch (Exception ex)
                     {
-                        cancelMonitor.CheckForCancel();
+                        token.ThrowIfCancellationRequested();
                         Log.Console.Warn($"Could not process file {visiting.Current.RelativePath}: {ex.Message}");
                     }
                 }
             }
-            cancelMonitor.CheckForCancel();
+            token.ThrowIfCancellationRequested();
 
             return 0;
         }
@@ -121,7 +140,7 @@ timestamp.
             };
         }
 
-        private IOutputDescriptor GetOutput(Arguments arguments)
+        private IOutputDescriptor GetOutput(CancellationToken token)
         {
             switch (arguments.OutputTargetType)
             {
@@ -131,7 +150,7 @@ timestamp.
                 case OutputTargetType.ElasticSearch:
                     {
                         var output = new OutputToElasticSearch(arguments.ServerUri.OriginalString);
-                        cancelMonitor.CancelRequested += (s, e) => output.Cancel();
+                        token.Register(() => output.Cancel());
                         return output;
                     }
 
@@ -142,8 +161,6 @@ timestamp.
                     throw new InvalidOperationException($"Unknown OutputTargetType: {arguments.OutputTargetType}");
             }
         }
-
-        private CancelMonitor cancelMonitor;
 
         private static bool MaybeReadInputsFromSTDIN(Arguments arguments)
         {
